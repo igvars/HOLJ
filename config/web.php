@@ -6,9 +6,11 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language'=>'en',
+    'language'=>'ru-RU',
+    'sourceLanguage' => 'en-US',
     'components' => [
         'request' => [
+            'class' => 'app\components\LangRequest',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'LZqcjOAWRvOjr0B3JPkF4g0m6WsMOsod',
         ],
@@ -35,6 +37,25 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                ],
+            ],
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'class'=>'app\components\LangUrlManager',
+            'rules'=>[
+                '/' => 'site/index',
+                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+            ]
+        ],
+        'language'=>'ru-RU',
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceMessageTable' => '{{%source_message}}',
+                    'messageTable' => '{{%message}}',
                 ],
             ],
         ],
