@@ -25,49 +25,79 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrapper">
     <?php //echo WLang::widget();?>
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ?
-                ['label' => 'Login', 'url' => ['/site/login']] :
-                [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ],
-        ],
-    ]);
-    NavBar::end();
-    ?>
-
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+        <div class="row">
+            <div class="col-sm-12"><?php
+                NavBar::begin([
+                    'brandLabel' => Yii::$app->name,
+                    'brandUrl'   => Yii::$app->homeUrl,
+                    'options'    => [
+                        //'class' => 'navbar-inverse navbar-fixed-top',
+                    ],
+                ]);
+                echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items'   => [
+                        ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
+                        ['label' => Yii::t('app', 'Our dogs'), 'url' => ['/our-dogs']],
+                        ['label' => Yii::t('app', 'Puppies'), 'url' => ['/puppies']],
+                        ['label' => Yii::t('app', 'Gallery'), 'url' => ['/gallery']],
+                        ['label' => Yii::t('app', 'Our friends'), 'url' => ['/our-friends']],
+                        ['label' => Yii::t('app', 'Contacts'), 'url' => ['/contacts']],
+                    ],
+                ]);
+                NavBar::end();
+                ?></div>
+        </div>
     </div>
-</div>
-
-<footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    'options' => ['class' => 'common-background common-border breadcrumb']
+                ]) ?>
+                <div class="common-background common-border content">
+                    <?= $content ?>
+                </div>
+            </div>
+            <div class="right-side-bar col-xs-12 col-sm-3">
+                <div class="common-background common-border nursery-information">
+                    <p><?= Yii::t('app', 'nursery') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+                    <p><?= Yii::$app->name ?></p>
+
+                    <p><?= Yii::t('app', 'owner & breeder:') ?></p>
+
+                    <p><?= Yii::t('app', 'Lesya Usatyuk') ?></p>
+
+                    <p><?= Yii::t('app', 'lesyausatyuk@gmail.com') ?></p>
+
+                    <p><?= Yii::t('app', '') ?></p>
+
+                    <p><?= Yii::t('app', '') ?></p>
+
+                    <p><?= Yii::t('app', 'ukraine / vinnitsa') ?></p>
+
+                    <p><?= Yii::t('app', 'we are in social networks') ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer class="footer container common-border">
+    <div class="row">
+        <div class="common-background col-sm-12">
+            <p class="center">&copy; <?= Yii::$app->name ?>
+                <?= date('Y') > 2016 ? "2016-" . date('Y') : date('Y') ?>
+            </p>
+        </div>
     </div>
 </footer>
+
 
 <?php $this->endBody() ?>
 </body>

@@ -6,6 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'name' => Yii::t('app','Home of little joys'),
     'language'=>'ru-RU',
     'sourceLanguage' => 'en-US',
     'components' => [
@@ -50,6 +51,11 @@ $config = [
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 '/' => 'site/index',
+                'our-dogs' => 'site/index',
+                'puppies' => 'site/index',
+                'gallery' => 'site/index',
+                'our-friends' => 'site/index',
+                'contacts' => 'site/contact',
             ]
         ],
         'language'=>'ru-RU',
