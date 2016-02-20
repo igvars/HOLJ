@@ -74,7 +74,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionContacts()
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
@@ -82,7 +82,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         }
-        return $this->render('contact', [
+        return $this->render('contacts', [
             'model' => $model,
         ]);
     }
@@ -90,5 +90,21 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionOurDogs() {
+        return $this->render('our-dogs');
+    }
+
+    public function actionPuppies() {
+        return $this->render('puppies');
+    }
+
+    public function actionGallery() {
+        return $this->render('gallery');
+    }
+
+    public function actionOurFriends() {
+        return $this->render('our-friends');
     }
 }
