@@ -5,14 +5,14 @@ namespace app\controllers;
 use Yii;
 use app\models\Message;
 use app\models\MessageSearch;
-use yii\web\Controller;
+use app\components\AdminBaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * MessageController implements the CRUD actions for Message model.
  */
-class MessageController extends Controller
+class MessageController extends AdminBaseController
 {
     public function behaviors()
     {

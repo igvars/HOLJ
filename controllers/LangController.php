@@ -2,17 +2,17 @@
 
 namespace app\controllers;
 
+use app\components\AdminBaseController;
 use Yii;
 use app\models\Lang;
 use app\models\LangSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * LangController implements the CRUD actions for Lang model.
  */
-class LangController extends Controller
+class LangController extends AdminBaseController
 {
     public function behaviors()
     {

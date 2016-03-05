@@ -36,6 +36,7 @@ AdminAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+            ['label' => 'Menu', 'url' => ['/admin/index']],
             ['label' => 'Home', 'url' => ['/site/index']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Login', 'url' => ['/site/login']] :
