@@ -10,6 +10,9 @@ $config = [
     'language'=>'ru-RU',
     'sourceLanguage' => 'en-US',
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],
         'request' => [
             'class' => 'app\components\LangRequest',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -51,6 +54,7 @@ $config = [
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 '/' => 'site/index',
+                '/admin' => 'admin/login',
                 '/our-dogs' => 'site/our-dogs',
                 '/puppies' => 'site/puppies',
                 '/gallery' => 'site/gallery',
