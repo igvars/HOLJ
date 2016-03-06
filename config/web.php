@@ -60,6 +60,7 @@ $config = [
                 '/gallery' => 'site/gallery',
                 '/our-friends' => 'site/our-friends',
                 '/contacts' => 'site/contacts',
+                '/pet-status' => 'pet-status/index',
             ]
         ],
         'language'=>'ru-RU',

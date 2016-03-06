@@ -97,3 +97,10 @@ a.desc:after {
 .form-image {
     width: 150px;
 }
+
+.image-trash {
+    color: #EE0000;
+    vertical-align: top;
+    cursor: pointer;
+    margin-left: 5px;
+}

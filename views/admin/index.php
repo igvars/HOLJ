@@ -1,5 +1,6 @@
 <?php
 use yii\bootstrap\Nav;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = Yii::$app->name;
@@ -14,16 +15,28 @@ $this->title = Yii::$app->name;
                 echo Nav::widget([
                     'items' => [
                         [
+                            'label' => 'Breed',
+                            'url' => Yii::$app->urlManager->createUrl(['breed/index']),
+                        ],
+                        [
+                            'label' => 'Pet',
+                            'url' => Yii::$app->urlManager->createUrl(['pet/index']),
+                        ],
+                        [
+                            'label' => 'Pet Status',
+                            'url' => Yii::$app->urlManager->createUrl(['pet-status/index']),
+                        ],
+                        [
                             'label' => 'Content',
-                            'url' => ['message/index'],
+                            'url' => Yii::$app->urlManager->createUrl(['message/index']),
                         ],
                         [
                             'label' => 'Languages',
-                            'url' => ['lang/index'],
+                            'url' => Yii::$app->urlManager->createUrl(['lang/index']),
                         ],
                         [
                             'label' => 'Main Slider',
-                            'url' => ['site/index'],
+                            'url' => Yii::$app->urlManager->createUrl(['slide/index']),
                         ],
                     ],
                     'options' => ['class' =>'nav-stacked'], // set this to nav-tab to get tab-styled navigation
