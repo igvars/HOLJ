@@ -9,7 +9,7 @@ $(document).ready(function() {
                 $.ajax({
                     type: 'get',
                     dataType: 'json',
-                    url: '/slide/change-status',
+                    url: $this.closest('.grid').data('url'),
                     data: {
                         id: $this.closest('tr').data('key')
                     },

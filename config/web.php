@@ -62,6 +62,7 @@ $config = [
                 '/contacts' => 'site/contacts',
                 '/pet-status' => 'pet-status/index',
                 'slide/change-status' => 'slide/change-status',
+                'breed/change-status' => 'breed/change-status',
             ]
         ],
         'language'=>'ru-RU',

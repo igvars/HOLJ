@@ -4,18 +4,20 @@ namespace app\models;
 
 use app\components\ActiveRecordBehaviors;
 use Yii;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "breed".
  *
  * @property integer $id
  * @property string $name
+ * @property string $description
  * @property string $date_create
  * @property string $date_update
- * @property integer $breed_status_id
+ * @property integer $common_status_id
  *
- * @property BreedStatus $breedStatus
- * @property Pet[] $pets
+ * @property CommonStatus $commonStatus
+ * @property Brood[] $broods
  */
 class Breed extends ActiveRecordBehaviors
 {
@@ -33,9 +35,10 @@ class Breed extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['name', 'date_create', 'date_update', 'breed_status_id'], 'required'],
+            [['name', 'common_status_id'], 'required'],
+            [['description'], 'string'],
             [['date_create', 'date_update'], 'safe'],
-            [['breed_status_id'], 'integer'],
+            [['common_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -48,25 +51,39 @@ class Breed extends ActiveRecordBehaviors
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
+            'description' => Yii::t('app', 'Description'),
             'date_create' => Yii::t('app', 'Date Create'),
             'date_update' => Yii::t('app', 'Date Update'),
-            'breed_status_id' => Yii::t('app', 'Breed Status ID'),
+            'common_status_id' => Yii::t('app', 'Common Status ID'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBreedStatus()
+    public function getCommonStatus()
     {
-        return $this->hasOne(BreedStatus::className(), ['id' => 'breed_status_id']);
+        return $this->hasOne(CommonStatus::className(), ['id' => 'common_status_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPets()
+    public function getBroods()
     {
-        return $this->hasMany(Pet::className(), ['breed_id' => 'id']);
+        return $this->hasMany(Brood::className(), ['breed_id' => 'id']);
+    }
+
+    public static function find()
+    {
+        return new BreedQuery(get_called_class());
+    }
+}
+
+class BreedQuery extends ActiveQuery
+{
+    public function active()
+    {
+        return $this->andWhere(['common_status_id' => CommonStatus::ACTIVE]);
     }
 }

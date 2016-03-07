@@ -32,16 +32,25 @@ class m160305_233650_base_tables extends Migration
         $this->createTable('breed',[
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
+            'description' => $this->text()->notNull(),
             'date_create' => $this->dateTime()->notNull(),
             'date_update' => $this->dateTime()->notNull(),
             'common_status_id' => $this->integer()->notNull()
+        ]);
+        $this->createTable('brood',[
+            'id' => $this->primaryKey(),
+            'name' => $this->string()->notNull(),
+            'date_create' => $this->dateTime()->notNull(),
+            'date_update' => $this->dateTime()->notNull(),
+            'breed_id' => $this->integer()->notNull(),
+            'common_status_id' => $this->integer()->notNull(),
         ]);
         $this->createTable('pet',[
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
             'date_create' => $this->dateTime()->notNull(),
             'date_update' => $this->dateTime()->notNull(),
-            'breed_id' => $this->integer()->notNull(),
+            'brood_id' => $this->integer()->notNull(),
             'pet_status_id' => $this->integer()->notNull()
         ]);
         $this->createTable('pet_image',[
@@ -58,8 +67,16 @@ class m160305_233650_base_tables extends Migration
             'breed','common_status_id',
             'common_status', 'id',
             'cascade', 'cascade');
-        $this->addForeignKey('pet_to_breed',
-            'pet','breed_id',
+        $this->addForeignKey('brood_to_common_status',
+            'brood','common_status_id',
+            'common_status', 'id',
+            'cascade', 'cascade');
+        $this->addForeignKey('pet_to_brood',
+            'pet','brood_id',
+            'brood', 'id',
+            'cascade', 'cascade');
+        $this->addForeignKey('brood_to_breed',
+            'brood','breed_id',
             'breed', 'id',
             'cascade', 'cascade');
         $this->addForeignKey('pet_to_pet_image',
@@ -83,11 +100,14 @@ class m160305_233650_base_tables extends Migration
         $this->dropForeignKey('slide_to_common_status', 'slide');
         $this->dropTable('slide');
         $this->dropForeignKey('pet_to_pet_image', 'pet_image');
-        $this->dropForeignKey('pet_to_breed', 'pet');
+        $this->dropForeignKey('pet_to_brood', 'pet');
+        $this->dropForeignKey('brood_to_breed', 'brood');
         $this->dropForeignKey('breed_to_common_status', 'breed');
+        $this->dropForeignKey('brood_to_common_status', 'brood');
         $this->dropForeignKey('pet_to_pet_status', 'pet');
         $this->dropTable('pet_image');
         $this->dropTable('pet');
+        $this->dropTable('brood');
         $this->dropTable('breed');
         $this->dropTable('pet_status');
         $this->dropTable('common_status');

@@ -30,9 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            'description:ntext',
             'date_create',
             'date_update',
-            'breed_status_id',
+            [
+                'label' => 'Status',
+                'value' => $model->commonStatus->name
+            ],
         ],
     ]) ?>
 

@@ -18,8 +18,8 @@ class BreedSearch extends Breed
     public function rules()
     {
         return [
-            [['id', 'breed_status_id'], 'integer'],
-            [['name', 'date_create', 'date_update'], 'safe'],
+            [['id', 'common_status_id'], 'integer'],
+            [['name', 'description', 'date_create', 'date_update'], 'safe'],
         ];
     }
 
@@ -59,10 +59,11 @@ class BreedSearch extends Breed
             'id' => $this->id,
             'date_create' => $this->date_create,
             'date_update' => $this->date_update,
-            'breed_status_id' => $this->breed_status_id,
+            'common_status_id' => $this->common_status_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

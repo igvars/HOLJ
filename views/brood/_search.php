@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\BreedSearch */
+/* @var $model app\models\BroodSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="breed-search">
+<div class="brood-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -19,11 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'description') ?>
-
     <?= $form->field($model, 'date_create') ?>
 
     <?= $form->field($model, 'date_update') ?>
+
+    <?= $form->field($model, 'breed_id') ?>
 
     <?php // echo $form->field($model, 'common_status_id') ?>
 

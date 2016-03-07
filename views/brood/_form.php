@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Pet */
+/* @var $model app\models\Brood */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="pet-form">
+<div class="brood-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date_update')->textInput() ?>
 
-    <?= $form->field($model, 'brood_id')->textInput() ?>
+    <?= $form->field($model, 'breed_id')->textInput() ?>
 
-    <?= $form->field($model, 'pet_status_id')->textInput() ?>
+    <?= $form->field($model, 'common_status_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

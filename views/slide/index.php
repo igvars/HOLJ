@@ -50,6 +50,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'options' => [
+            'data-url' => Yii::$app->urlManager->createUrl(['slide/change-status']),
+            'class' => 'grid'
+        ]
     ]); ?>
 
 </div>

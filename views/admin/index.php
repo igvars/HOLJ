@@ -19,20 +19,16 @@ $this->title = Yii::$app->name;
                             'url' => Yii::$app->urlManager->createUrl(['breed/index']),
                         ],
                         [
+                            'label' => 'Brood',
+                            'url' => Yii::$app->urlManager->createUrl(['brood/index']),
+                        ],
+                        [
                             'label' => 'Pet',
                             'url' => Yii::$app->urlManager->createUrl(['pet/index']),
                         ],
                         [
-                            'label' => 'Pet Status',
-                            'url' => Yii::$app->urlManager->createUrl(['pet-status/index']),
-                        ],
-                        [
                             'label' => 'Content',
                             'url' => Yii::$app->urlManager->createUrl(['message/index']),
-                        ],
-                        [
-                            'label' => 'Languages',
-                            'url' => Yii::$app->urlManager->createUrl(['lang/index']),
                         ],
                         [
                             'label' => 'Main Slider',

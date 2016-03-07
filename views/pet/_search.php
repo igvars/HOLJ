@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date_update') ?>
 
-    <?= $form->field($model, 'breed_id') ?>
+    <?= $form->field($model, 'brood_id') ?>
 
     <?php // echo $form->field($model, 'pet_status_id') ?>
 

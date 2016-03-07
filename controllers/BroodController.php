@@ -3,17 +3,16 @@
 namespace app\controllers;
 
 use app\components\AdminBaseController;
-use app\models\CommonStatus;
 use Yii;
-use app\models\Breed;
-use app\models\BreedSearch;
+use app\models\Brood;
+use app\models\BroodSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * BreedController implements the CRUD actions for Breed model.
+ * BroodController implements the CRUD actions for Brood model.
  */
-class BreedController extends AdminBaseController
+class BroodController extends AdminBaseController
 {
     public function behaviors()
     {
@@ -28,12 +27,12 @@ class BreedController extends AdminBaseController
     }
 
     /**
-     * Lists all Breed models.
+     * Lists all Brood models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new BreedSearch();
+        $searchModel = new BroodSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -43,7 +42,7 @@ class BreedController extends AdminBaseController
     }
 
     /**
-     * Displays a single Breed model.
+     * Displays a single Brood model.
      * @param integer $id
      * @return mixed
      */
@@ -55,13 +54,13 @@ class BreedController extends AdminBaseController
     }
 
     /**
-     * Creates a new Breed model.
+     * Creates a new Brood model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Breed();
+        $model = new Brood();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -73,7 +72,7 @@ class BreedController extends AdminBaseController
     }
 
     /**
-     * Updates an existing Breed model.
+     * Updates an existing Brood model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -92,7 +91,7 @@ class BreedController extends AdminBaseController
     }
 
     /**
-     * Deletes an existing Breed model.
+     * Deletes an existing Brood model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -105,38 +104,18 @@ class BreedController extends AdminBaseController
     }
 
     /**
-     * Finds the Breed model based on its primary key value.
+     * Finds the Brood model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Breed the loaded model
+     * @return Brood the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Breed::findOne($id)) !== null) {
+        if (($model = Brood::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    /**
-     * @param $id
-     * @return string
-     * @throws NotFoundHttpException
-     */
-    public function actionChangeStatus($id) {
-        $model = $this->findModel($id);
-
-        if($model->common_status_id == CommonStatus::ACTIVE) {
-            $model->common_status_id = CommonStatus::INACTIVE;
-            $response = 'status-inactive';
-        } else {
-            $model->common_status_id = CommonStatus::ACTIVE;
-            $response = 'status-active';
-        }
-        $model->save();
-
-        return json_encode($response);
     }
 }

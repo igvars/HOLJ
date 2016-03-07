@@ -18,7 +18,7 @@ class PetSearch extends Pet
     public function rules()
     {
         return [
-            [['id', 'breed_id', 'pet_status_id'], 'integer'],
+            [['id', 'brood_id', 'pet_status_id'], 'integer'],
             [['name', 'date_create', 'date_update'], 'safe'],
         ];
     }
@@ -59,7 +59,7 @@ class PetSearch extends Pet
             'id' => $this->id,
             'date_create' => $this->date_create,
             'date_update' => $this->date_update,
-            'breed_id' => $this->breed_id,
+            'brood_id' => $this->brood_id,
             'pet_status_id' => $this->pet_status_id,
         ]);
 

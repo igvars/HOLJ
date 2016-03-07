@@ -2,31 +2,31 @@
 
 namespace app\models;
 
-use app\components\ActiveRecordBehaviors;
 use Yii;
+use app\components\ActiveRecordBehaviors;
 
 /**
- * This is the model class for table "pet".
+ * This is the model class for table "brood".
  *
  * @property integer $id
  * @property string $name
  * @property string $date_create
  * @property string $date_update
- * @property integer $brood_id
- * @property integer $pet_status_id
+ * @property integer $breed_id
+ * @property integer $common_status_id
  *
- * @property Brood $brood
- * @property PetStatus $petStatus
- * @property PetImage[] $petImages
+ * @property Breed $breed
+ * @property CommonStatus $commonStatus
+ * @property Pet[] $pets
  */
-class Pet extends ActiveRecordBehaviors
+class Brood extends ActiveRecordBehaviors
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'pet';
+        return 'brood';
     }
 
     /**
@@ -35,9 +35,9 @@ class Pet extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['name', 'date_create', 'date_update', 'brood_id', 'pet_status_id'], 'required'],
+            [['name', 'date_create', 'date_update', 'breed_id', 'common_status_id'], 'required'],
             [['date_create', 'date_update'], 'safe'],
-            [['brood_id', 'pet_status_id'], 'integer'],
+            [['breed_id', 'common_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -52,32 +52,32 @@ class Pet extends ActiveRecordBehaviors
             'name' => Yii::t('app', 'Name'),
             'date_create' => Yii::t('app', 'Date Create'),
             'date_update' => Yii::t('app', 'Date Update'),
-            'brood_id' => Yii::t('app', 'Brood ID'),
-            'pet_status_id' => Yii::t('app', 'Pet Status ID'),
+            'breed_id' => Yii::t('app', 'Breed ID'),
+            'common_status_id' => Yii::t('app', 'Common Status ID'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBrood()
+    public function getBreed()
     {
-        return $this->hasOne(Brood::className(), ['id' => 'brood_id']);
+        return $this->hasOne(Breed::className(), ['id' => 'breed_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPetStatus()
+    public function getCommonStatus()
     {
-        return $this->hasOne(PetStatus::className(), ['id' => 'pet_status_id']);
+        return $this->hasOne(CommonStatus::className(), ['id' => 'common_status_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPetImages()
+    public function getPets()
     {
-        return $this->hasMany(PetImage::className(), ['pet_id' => 'id']);
+        return $this->hasMany(Pet::className(), ['brood_id' => 'id']);
     }
 }

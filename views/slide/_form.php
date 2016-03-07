@@ -19,7 +19,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'alt')->textArea(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'common_status_id')->dropDownList(ArrayHelper::map(CommonStatus::find()->all(),'id','name')) ?>
+    <?= $form->field($model, 'common_status_id')->dropDownList(CommonStatus::getAll()) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
