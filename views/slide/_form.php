@@ -17,7 +17,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->imageField($model, 'source_url', ['class'=>'form-image'])?>
 
-    <?= $form->field($model, 'alt')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'alt')->textArea(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'common_status_id')->dropDownList(ArrayHelper::map(CommonStatus::find()->all(),'id','name')) ?>
 

@@ -22,6 +22,7 @@ class AdminAsset extends AssetBundle
     ];
     public $js = [
         'js/uploadFiles.js',
+        'js/adminScript.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

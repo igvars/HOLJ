@@ -104,3 +104,13 @@ a.desc:after {
     cursor: pointer;
     margin-left: 5px;
 }
+.status-active {
+    color: #00aa00;
+}
+.status-inactive {
+    color: #EE0000;
+}
+.status-button {
+    cursor: pointer;
+    font-size: 18px;
+}

@@ -61,6 +61,7 @@ $config = [
                 '/our-friends' => 'site/our-friends',
                 '/contacts' => 'site/contacts',
                 '/pet-status' => 'pet-status/index',
+                'slide/change-status' => 'slide/change-status',
             ]
         ],
         'language'=>'ru-RU',

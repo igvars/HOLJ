@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\AdminBaseController;
+use app\models\CommonStatus;
 use Yii;
 use app\models\Slide;
 use app\models\SlideSearch;
@@ -117,5 +118,25 @@ class SlideController extends AdminBaseController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * @param $id
+     * @return string
+     * @throws NotFoundHttpException
+     */
+    public function actionChangeStatus($id) {
+        $model = $this->findModel($id);
+
+        if($model->common_status_id == CommonStatus::ACTIVE) {
+            $model->common_status_id = CommonStatus::INACTIVE;
+            $response = 'status-inactive';
+        } else {
+            $model->common_status_id = CommonStatus::ACTIVE;
+            $response = 'status-active';
+        }
+        $model->save();
+
+        return json_encode($response);
     }
 }

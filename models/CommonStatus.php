@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "common_status".
@@ -15,6 +16,8 @@ use Yii;
  */
 class CommonStatus extends \yii\db\ActiveRecord
 {
+    const ACTIVE = 1;
+    const INACTIVE = 2;
     /**
      * @inheritdoc
      */
@@ -59,5 +62,9 @@ class CommonStatus extends \yii\db\ActiveRecord
     public function getSlides()
     {
         return $this->hasMany(Slide::className(), ['common_status_id' => 'id']);
+    }
+
+    public static function getAll() {
+        return ArrayHelper::map(CommonStatus::find()->all(),'id','name');
     }
 }

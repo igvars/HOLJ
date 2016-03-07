@@ -28,10 +28,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            [
+                'label' => 'Image',
+                'value' => "<img src='/" . $model->source_url . "' />",
+                'format' => 'raw',
+                'contentOptions' => [
+                    'class' => 'grid-image'
+                ]
+            ],
+            'alt',
+            [
+                'label' => 'Status',
+                'value' => $model->commonStatus->name
+            ],
             'id',
             'source_url:url',
-            'alt',
-            'common_status_id',
         ],
     ]) ?>
 

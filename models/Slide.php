@@ -49,7 +49,7 @@ class Slide extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'source_url' => Yii::t('app', 'Source Url'),
             'alt' => Yii::t('app', 'Alt'),
-            'common_status_id' => Yii::t('app', 'Common Status ID'),
+            'common_status_id' => Yii::t('app', 'Status'),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\CommonStatus;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SlideSearch */
@@ -24,10 +25,28 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'source_url:url',
+            [
+                'attribute' => 'source_url',
+                'value' => function($data) {
+                    return "<img src='/" . $data->source_url . "' />";
+                },
+                'format' => 'raw',
+                'contentOptions' => [
+                    'class' => 'grid-image'
+                ],
+                'filter' => false
+            ],
             'alt',
-            'common_status_id',
+            [
+                'attribute' => 'common_status_id',
+                'value' => function($data) {
+                    return $data->common_status_id == CommonStatus::ACTIVE ?
+                        '<span class="status-button status-active glyphicon glyphicon-refresh"></span>'
+                        : '<span class="status-button status-inactive glyphicon glyphicon-refresh"></span>';
+                },
+                'format' => 'raw',
+                'filter' => CommonStatus::getAll()
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
