@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\helpers\FileHelper;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "slide".
@@ -79,5 +80,18 @@ class Slide extends \yii\db\ActiveRecord
             }
             return true;
         } else return false;
+    }
+
+    public static function find()
+    {
+        return new SlideQuery(get_called_class());
+    }
+}
+
+class SlideQuery extends ActiveQuery
+{
+    public function active()
+    {
+        return $this->andWhere(['common_status_id' => CommonStatus::ACTIVE]);
     }
 }

@@ -36,7 +36,7 @@ AppAsset::register($this);
             <div class="col-xs-12">
                 <?php
                 /** @var Slide[] $slides */
-                $slides = Slide::find()->all();
+                $slides = Slide::find()->active()->all();
                 $items = [];
                 foreach($slides as $slide) {
                     $items[] = "<img src='/{$slide->source_url}'>";
