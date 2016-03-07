@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 //use app\widgets\WLang;
 use yii\helpers\Url;
+use yii\bootstrap\Carousel;
+use app\models\Slide;
 
 AppAsset::register($this);
 ?>
@@ -29,6 +31,42 @@ AppAsset::register($this);
 
 <div class="wrapper">
     <?php //echo WLang::widget();?>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <?php
+                /** @var Slide[] $slides */
+                $slides = Slide::find()->all();
+                $items = [];
+                foreach($slides as $slide) {
+                    $items[] = "<img src='/{$slide->source_url}'>";
+                }
+                ?>
+            </div>
+            <div class="col-xs-12">
+
+                <div id="main-slider" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <?php for($i=0; $i< count($items); ++$i) { ?>
+                            <li data-target="#main-slider" data-slide-to="<?= $i ?>" <?= !$i?'class="active"':''?>></li>
+                        <?php } ?>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <?php foreach($items as $index => $item) : ?>
+
+                            <div class="<?= !$index?'active':'' ?> item">
+                                <?= $item ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12"><?php
