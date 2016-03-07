@@ -5,6 +5,7 @@ namespace app\models;
 use app\components\ActiveRecordBehaviors;
 use Yii;
 use yii\db\ActiveQuery;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "breed".
@@ -77,6 +78,10 @@ class Breed extends ActiveRecordBehaviors
     public static function find()
     {
         return new BreedQuery(get_called_class());
+    }
+
+    public static function getAll() {
+        return ArrayHelper::map(Breed::find()->all(),'id','name');
     }
 }
 

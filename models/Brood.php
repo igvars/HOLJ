@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\components\ActiveRecordBehaviors;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "brood".
@@ -35,7 +36,7 @@ class Brood extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['name', 'date_create', 'date_update', 'breed_id', 'common_status_id'], 'required'],
+            [['name', 'breed_id', 'common_status_id'], 'required'],
             [['date_create', 'date_update'], 'safe'],
             [['breed_id', 'common_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255]
@@ -79,5 +80,9 @@ class Brood extends ActiveRecordBehaviors
     public function getPets()
     {
         return $this->hasMany(Pet::className(), ['brood_id' => 'id']);
+    }
+
+    public static function getAll() {
+        return ArrayHelper::map(Brood::find()->all(),'id','name');
     }
 }

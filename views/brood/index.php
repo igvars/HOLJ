@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\CommonStatus;
+use app\models\Breed;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\BroodSearch */
@@ -25,15 +27,30 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
             'date_create',
             'date_update',
-            'breed_id',
-            // 'common_status_id',
+            [
+                'attribute' => 'breed_id',
+                'filter' => Breed::getAll()
+            ],
+            [
+                'attribute' => 'common_status_id',
+                'value' => function($data) {
+                    return $data->common_status_id == CommonStatus::ACTIVE ?
+                        '<span class="status-button status-active glyphicon glyphicon-refresh"></span>'
+                        : '<span class="status-button status-inactive glyphicon glyphicon-refresh"></span>';
+                },
+                'format' => 'raw',
+                'filter' => CommonStatus::getAll()
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'options' => [
+            'data-url' => Yii::$app->urlManager->createUrl(['brood/change-status']),
+            'class' => 'grid'
+        ]
     ]); ?>
 
 </div>
