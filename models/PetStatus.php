@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\components\ActiveRecordBehaviors;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "pet_status".
@@ -51,5 +52,9 @@ class PetStatus extends ActiveRecordBehaviors
     public function getPets()
     {
         return $this->hasMany(Pet::className(), ['pet_status_id' => 'id']);
+    }
+
+    public static function getAll() {
+        return ArrayHelper::map(self::find()->all(),'id','name');
     }
 }

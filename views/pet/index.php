@@ -25,12 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
             'date_create',
             'date_update',
-            'brood_id',
-            // 'pet_status_id',
+            [
+                'attribute' => 'brood_id',
+                'filter' => \app\models\Brood::getAll()
+            ],
+            [
+                'attribute' => 'pet_status_id',
+                'filter' => \app\models\PetStatus::getAll()
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

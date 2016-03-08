@@ -21,6 +21,9 @@ use Yii;
  */
 class Pet extends ActiveRecordBehaviors
 {
+    /** @var integer $breed_id */
+    public $breed_id;
+
     /**
      * @inheritdoc
      */
@@ -35,7 +38,7 @@ class Pet extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['name', 'date_create', 'date_update', 'brood_id', 'pet_status_id'], 'required'],
+            [['name', 'brood_id', 'pet_status_id', 'breed_id'], 'required'],
             [['date_create', 'date_update'], 'safe'],
             [['brood_id', 'pet_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255]

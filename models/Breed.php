@@ -81,7 +81,7 @@ class Breed extends ActiveRecordBehaviors
     }
 
     public static function getAll() {
-        return ArrayHelper::map(Breed::find()->all(),'id','name');
+        return ArrayHelper::map(self::find()->all(),'id','name');
     }
 }
 

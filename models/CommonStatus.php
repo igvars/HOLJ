@@ -65,6 +65,6 @@ class CommonStatus extends \yii\db\ActiveRecord
     }
 
     public static function getAll() {
-        return ArrayHelper::map(CommonStatus::find()->all(),'id','name');
+        return ArrayHelper::map(self::find()->all(),'id','name');
     }
 }

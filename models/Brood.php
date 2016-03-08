@@ -83,6 +83,6 @@ class Brood extends ActiveRecordBehaviors
     }
 
     public static function getAll() {
-        return ArrayHelper::map(Brood::find()->all(),'id','name');
+        return ArrayHelper::map(self::find()->all(),'id','name');
     }
 }
