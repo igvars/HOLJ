@@ -2,29 +2,25 @@ html,
 body {
     height: 100%;
 }
-
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-    max-width: 1100px;
+body {
+    background-image: url("/images/background.jpeg");
 }
+/*.wrap {*/
+    /*min-height: 100%;*/
+    /*height: auto;*/
+    /*margin: 0 auto -60px;*/
+    /*padding: 0 0 60px;*/
+    /*max-width: 1100px;*/
+/*}*/
 
-.wrap > .container {
-    padding: 70px 15px 20px;
-}
+/*.wrap > .container {*/
+    /*padding: 70px 15px 20px;*/
+/*}*/
 
 .container {
     width: 100%;
 }
 
-.footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-}
 
 .jumbotron {
     text-align: center;
@@ -98,7 +94,7 @@ a.desc:after {
     width: 100%;
     max-width: 1200px;
     min-height: 100%;
-    margin: 0 auto -60px;
+    margin: 0 auto;
     height: auto;
     position: relative;
 }
@@ -107,16 +103,23 @@ a.desc:after {
     padding: 15px;
     margin-bottom: 15px;
 }
-.center {
-    text-align: center;
+.footer p {
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
 }
 .footer {
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
-    margin: auto;
-    height: 60px;
+    margin: 0 auto;
+    padding-top: 20px;
 }
-
+.footer-text {
+    text-align: center;
+    height: 60px;
+    display: table;
+    width: 100%;
+}
 .nursery-information {
     padding: 15px;
     text-align: center;
@@ -124,12 +127,13 @@ a.desc:after {
 }
 
 .common-border {
-    border-radius: 5px;
-    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+    border: solid 1px #fff;
+    box-shadow: 0 0 10px 2px #ccc;
 }
 
 .common-background {
-    background-color: #f8f8f8;
+    background: rgba(255,255,255,0.65);
 }
 #main-slider .item {
     /*position: relative;*/

@@ -31,9 +31,8 @@ AppAsset::register($this);
 
 <div class="wrapper">
     <?php //echo WLang::widget();?>
-    <div class="container">
+    <header class="container">
         <div class="row">
-            <div class="col-xs-12">
                 <?php
                 /** @var Slide[] $slides */
                 $slides = Slide::find()->active()->all();
@@ -42,7 +41,6 @@ AppAsset::register($this);
                     $items[] = "<img src='/{$slide->source_url}'>";
                 }
                 ?>
-            </div>
             <div class="col-xs-12">
 
                 <div id="main-slider" class="carousel slide carousel-fade" data-ride="carousel">
@@ -66,16 +64,11 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col-sm-12"><?php
                 NavBar::begin([
                     'brandLabel' => Yii::$app->name,
                     'brandUrl'   => Yii::$app->homeUrl,
-                    'options'    => [
-                        //'class' => 'navbar-inverse navbar-fixed-top',
-                    ],
                 ]);
                 echo Nav::widget([
                     'options' => ['class' => 'navbar-nav navbar-right'],
@@ -89,12 +82,13 @@ AppAsset::register($this);
                     ],
                 ]);
                 NavBar::end();
-                ?></div>
+                ?>
+            </div>
         </div>
-    </div>
-    <div class="container">
+    </header>
+    <section class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-9">
+            <main class="col-xs-12 col-sm-9">
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     'options' => ['class' => 'common-background common-border breadcrumb']
@@ -102,8 +96,8 @@ AppAsset::register($this);
                 <div class="common-background common-border content">
                     <?= $content ?>
                 </div>
-            </div>
-            <div class="right-side-bar col-xs-12 col-sm-3">
+            </main>
+            <aside class="right-side-bar col-xs-12 col-sm-3">
                 <div class="common-background common-border nursery-information">
                     <p><?= Yii::t('app', 'nursery') ?></p>
 
@@ -123,17 +117,19 @@ AppAsset::register($this);
 
                     <p><?= Yii::t('app', 'we are in social networks') ?></p>
                 </div>
-            </div>
+            </aside>
         </div>
-    </div>
+    </section>
 
 </div>
-<footer class="footer container common-border">
+<footer class="footer container">
     <div class="row">
-        <div class="common-background col-sm-12">
-            <p class="center">&copy; <?= Yii::$app->name ?>
-                <?= date('Y') > 2016 ? "2016-" . date('Y') : date('Y') ?>
-            </p>
+        <div class="col-sm-12">
+            <div class="footer-text common-background common-border">
+                <p class="center">&copy; <?= Yii::$app->name ?>
+                    <?= date('Y') > 2016 ? "2016-" . date('Y') : date('Y') ?>
+                </p>
+            </div>
         </div>
     </div>
 </footer>
