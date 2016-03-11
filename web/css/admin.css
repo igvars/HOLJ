@@ -147,3 +147,6 @@ a.desc:after {
 .upload-image-block label {
     width: 90%;
 }
+.upload-image-block .image-wrap {
+    opacity: 0.5;
+}
