@@ -70,4 +70,29 @@ $(document).ready(function() {
             }
         }
     });
+
+    var category = $("#pet-breed_id");
+    var subcategory = $("#pet-brood_id");
+    var sendFlagBreed = false;
+    category.change(function() {
+        if(category.val()) {
+            if(!sendFlagBreed) {
+                sendFlagBreed = true;
+                $.ajax({
+                    url: category.data('url'),
+                    data: {
+                        id: category.val()
+                    },
+                    success: function(response) {
+                        subcategory.empty();
+                        subcategory.append(response);
+                        sendFlagBreed = false;
+                    }
+                });
+            }
+            subcategory.attr('disabled', false);
+        } else {
+            subcategory.attr('disabled', true);
+        }
+    });
 });

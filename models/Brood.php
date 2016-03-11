@@ -82,7 +82,7 @@ class Brood extends ActiveRecordBehaviors
         return $this->hasMany(Pet::className(), ['brood_id' => 'id']);
     }
 
-    public static function getAll() {
-        return ArrayHelper::map(self::find()->all(),'id','name');
+    public static function getAll($breed_id = 0) {
+        return ArrayHelper::map(self::find()->where(['breed_id'=>$breed_id])->all(),'id','name');
     }
 }

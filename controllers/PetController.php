@@ -4,11 +4,13 @@ namespace app\controllers;
 
 use app\components\AdminBaseController;
 use app\helpers\FileHelper;
+use app\models\Brood;
 use app\models\PetImage;
 use Yii;
 use app\models\Pet;
 use app\models\PetSearch;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Html;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -85,6 +87,7 @@ class PetController extends AdminBaseController
     {
         $model = $this->findModel($id);
         $model->imageFiles = $model->petImages;
+        $model->breed_id = $model->brood->breed->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -127,32 +130,6 @@ class PetController extends AdminBaseController
         }
     }
 
-    public function actionUpload($id) {
-        $model = $this->findModel($id);
-
-        $files = UploadedFile::getInstances($model, 'imageFiles');
-        foreach($files as $file) {
-            $image = new PetImage();
-            if ($file) {
-
-                $extension = explode('/', $file->type)[1];
-                $fileName = 'images/pets/' . time() . '_' . rand(10000, 99999) . '.' . $extension;
-
-                $file->saveAs($fileName);
-                $image->source_url = $fileName;
-                $image->pet_id = $model->id;
-                if (!$image->save()) {
-                    echo '<pre>';
-                    var_dump($image->getErrors());
-                    die();
-                }
-
-
-            }
-        }
-        return true;
-    }
-
     public function actionAdd($index) {
         $model = new PetImage();
         $response = $this->renderPartial('/layouts/template-add',[
@@ -169,5 +146,14 @@ class PetController extends AdminBaseController
         @unlink($model->source_url);
         $model->delete();
         return;
+    }
+
+    public function actionSubcategory($id) {
+        $subcategories = Brood::getAll($id);
+        $response = "<option value=''>".Yii::t('app', '-- select brood --') ."</option>";
+        foreach ($subcategories as $key => $subcategoryName) {
+            $response .= "<option value='{$key}'>{$subcategoryName}</option>";
+        }
+        return $response;
     }
 }

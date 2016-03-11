@@ -14,9 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'breed_id')->dropDownList(\app\models\Breed::getAll(),['prompt'=>Yii::t('app','-- select breed --')]) ?>
+    <?= $form->field($model, 'breed_id')->dropDownList(\app\models\Breed::getAll(),['prompt'=>Yii::t('app','-- select breed --'),'data-url'=>'/pet/subcategory']) ?>
 
-    <?= $form->field($model, 'brood_id')->dropDownList(\app\models\Brood::getAll()) ?>
+    <?= $form->field($model, 'brood_id')->dropDownList(\app\models\Brood::getAll($model->breed_id),['disabled'=>'disabled','prompt'=>Yii::t('app','-- select brood --')]) ?>
 
     <?= $form->field($model, 'pet_status_id')->dropDownList(\app\models\PetStatus::getAll()) ?>
 
