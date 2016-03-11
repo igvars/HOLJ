@@ -47,6 +47,7 @@ class Pet extends ActiveRecordBehaviors
         return [
             [['name', 'brood_id', 'pet_status_id', 'breed_id'], 'required'],
             [['date_create', 'date_update'], 'safe'],
+            [['name'], 'unique'],
             [['brood_id', 'pet_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 0],

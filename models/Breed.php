@@ -39,6 +39,7 @@ class Breed extends ActiveRecordBehaviors
             [['name', 'common_status_id'], 'required'],
             [['description'], 'string'],
             [['date_create', 'date_update'], 'safe'],
+            [['name'], 'unique'],
             [['common_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
