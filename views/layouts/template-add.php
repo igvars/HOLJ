@@ -19,3 +19,18 @@
         <input type="hidden" id="petimage-removeimage" name="PetImage[removeImage]" value="0">
     </div>
 </div>
+<script>
+    $("input[type=file]").change(function () {
+        if (this.files && this.files[0]) {
+            var $this = $(this);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('label[for=' + $this.attr('id') + '] img').attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(this.files[0]);
+
+            $('[class*=img-preview]').attr('src', $('img.img-upload:first-child').attr('src'))
+        }
+    });
+</script>
