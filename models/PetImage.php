@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use app\components\ActiveRecordBehaviors;
 use Yii;
 
 /**
@@ -15,7 +14,7 @@ use Yii;
  *
  * @property Pet $pet
  */
-class PetImage extends ActiveRecordBehaviors
+class PetImage extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -31,7 +30,7 @@ class PetImage extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['source_url', 'alt', 'pet_id'], 'required'],
+            [['source_url', 'pet_id'], 'required'],
             [['pet_id'], 'integer'],
             [['source_url', 'alt'], 'string', 'max' => 255]
         ];

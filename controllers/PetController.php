@@ -3,11 +3,15 @@
 namespace app\controllers;
 
 use app\components\AdminBaseController;
+use app\helpers\FileHelper;
+use app\models\PetImage;
 use Yii;
 use app\models\Pet;
 use app\models\PetSearch;
+use yii\bootstrap\ActiveForm;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PetController implements the CRUD actions for Pet model.
@@ -80,7 +84,7 @@ class PetController extends AdminBaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $model->imageFiles = $model->petImages;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -98,7 +102,11 @@ class PetController extends AdminBaseController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        foreach($model->petImages as $image) {
+            @unlink($image->source_url);
+        }
+        $model->delete();
 
         return $this->redirect(['index']);
     }
@@ -117,5 +125,49 @@ class PetController extends AdminBaseController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionUpload($id) {
+        $model = $this->findModel($id);
+
+        $files = UploadedFile::getInstances($model, 'imageFiles');
+        foreach($files as $file) {
+            $image = new PetImage();
+            if ($file) {
+
+                $extension = explode('/', $file->type)[1];
+                $fileName = 'images/pets/' . time() . '_' . rand(10000, 99999) . '.' . $extension;
+
+                $file->saveAs($fileName);
+                $image->source_url = $fileName;
+                $image->pet_id = $model->id;
+                if (!$image->save()) {
+                    echo '<pre>';
+                    var_dump($image->getErrors());
+                    die();
+                }
+
+
+            }
+        }
+        return true;
+    }
+
+    public function actionAdd($index) {
+        $model = new PetImage();
+        $response = $this->renderPartial('/layouts/template-add',[
+            'model' => $model,
+            'attribute' => 'source_url',
+            'index' => $index
+        ]);
+        return json_encode($response);
+    }
+
+    public function actionRemove($id) {
+        /** @var PetImage $model */
+        $model = PetImage::findOne(['id'=>$id]);
+        @unlink($model->source_url);
+        $model->delete();
+        return;
     }
 }

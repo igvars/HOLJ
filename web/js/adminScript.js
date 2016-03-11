@@ -26,4 +26,48 @@ $(document).ready(function() {
         }
     });
 
+    var sendFlag = false;
+    var deleteFlag = false;
+    $(document).on("click", '.image-add', function() {
+        var $this = $(this);
+        var index = $(".upload-image-block").last().data('index')+1;
+        if(!index) {
+            index = 0;
+        }
+        if(!sendFlag) {
+            sendFlag = true;
+            $.ajax({
+                url: $this.data('url'),
+                data: {
+                    index: index
+                },
+                success: function(response) {
+                    $(".image-container").append(JSON.parse(response));
+                    sendFlag = false;
+                }
+            });
+        }
+    });
+    $(document).on("click", '.upload-image-block .image-trash', function() {
+        $(this).closest(".col-md-4").remove();
+    });
+    $(document).on("click", '.uploaded-image-block .image-trash', function() {
+        var $this = $(this);
+        var id = $this.data('id');
+        if(!deleteFlag) {
+            deleteFlag = true;
+            if(confirm('Delete this image?')) {
+                $.ajax({
+                    url: $this.data('url'),
+                    data: {
+                        id: id
+                    },
+                    success: function () {
+                        $this.closest(".col-md-4").remove();
+                        deleteFlag = false;
+                    }
+                });
+            }
+        }
+    });
 });

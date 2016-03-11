@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pet */
@@ -11,20 +10,7 @@ use kartik\file\FileInput;
 
 <div class="pet-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-
-    <div class="row">
-        <div class="image-container">
-            <?php foreach($model->imageFiles as $file) {
-                echo $this->render('/layouts/template-image.php',['image'=>$file]);
-            } ?>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="add-image-block">
-                <span data-url="/pet/add" data-id="<?= $model->id ?>" class="image-add glyphicon glyphicon-plus"></span>
-            </div>
-        </div>
-    </div>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
