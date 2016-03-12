@@ -76,8 +76,8 @@ AppAsset::register($this);
                         ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
                         ['label' => Yii::t('app', 'Our dogs'), 'url' => ['/site/our-dogs']],
                         ['label' => Yii::t('app', 'Puppies'), 'url' => ['/site/puppies']],
-                        ['label' => Yii::t('app', 'Gallery'), 'url' => ['/site/gallery']],
-                        ['label' => Yii::t('app', 'Our friends'), 'url' => ['/site/our-friends']],
+//                        ['label' => Yii::t('app', 'Gallery'), 'url' => ['/site/gallery']],
+//                        ['label' => Yii::t('app', 'Our friends'), 'url' => ['/site/our-friends']],
                         ['label' => Yii::t('app', 'Contacts'), 'url' => ['/site/contacts']],
                     ],
                 ]);

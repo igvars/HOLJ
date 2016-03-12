@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\BaseController;
+use app\models\Pet;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -49,7 +50,8 @@ class SiteController extends BaseController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $pets = Pet::find()->all();
+        return $this->render('index',['pets'=>$pets]);
     }
 
     public function actionLogin()
