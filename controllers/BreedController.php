@@ -24,7 +24,7 @@ class BreedController extends AdminBaseController
 //                'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['index','create','update','delete','view'],
+                        'actions' => ['index','create','update','delete','view','change-status'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

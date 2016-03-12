@@ -3,12 +3,14 @@
 namespace app\controllers;
 
 use app\components\BaseController;
+use app\models\Breed;
 use app\models\Pet;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends BaseController
 {
@@ -98,8 +100,12 @@ class SiteController extends BaseController
         return $this->render('our-dogs');
     }
 
-    public function actionPuppies() {
-        return $this->render('puppies');
+    public function actionPuppies($id) {
+        $model = Breed::findOne($id);
+        if(!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        return $this->render('puppies', ['model' => $model]);
     }
 
     public function actionGallery() {

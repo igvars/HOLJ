@@ -190,3 +190,6 @@ a.desc:after {
     position: absolute;
     transform: translate(-50%,-50%);
 }
+h1 {
+    margin: 0;
+}

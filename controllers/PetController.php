@@ -11,6 +11,7 @@ use app\models\Pet;
 use app\models\PetSearch;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -23,6 +24,17 @@ class PetController extends AdminBaseController
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+//                'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','view','add','remove','subcategory'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

@@ -6,6 +6,7 @@ use app\components\AdminBaseController;
 use Yii;
 use app\models\Lang;
 use app\models\LangSearch;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -17,6 +18,17 @@ class LangController extends AdminBaseController
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+//                'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','view','change-status'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

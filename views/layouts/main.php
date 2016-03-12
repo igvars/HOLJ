@@ -1,6 +1,5 @@
 <?php
 
-/* @var $this \yii\web\View */
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -12,6 +11,7 @@ use app\assets\AppAsset;
 use yii\helpers\Url;
 use yii\bootstrap\Carousel;
 use app\models\Slide;
+use app\components\BaseView;
 
 AppAsset::register($this);
 ?>
@@ -75,7 +75,11 @@ AppAsset::register($this);
                     'items'   => [
                         ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
                         ['label' => Yii::t('app', 'Our dogs'), 'url' => ['/site/our-dogs']],
-                        ['label' => Yii::t('app', 'Puppies'), 'url' => ['/site/puppies']],
+                        [
+                            'label' => Yii::t('app', 'Puppies'),
+                            'items' => BaseView::getBreedItems(),
+                        ],
+//                        ['label' => , 'url' => ['/site/puppies']],
 //                        ['label' => Yii::t('app', 'Gallery'), 'url' => ['/site/gallery']],
 //                        ['label' => Yii::t('app', 'Our friends'), 'url' => ['/site/our-friends']],
                         ['label' => Yii::t('app', 'Contacts'), 'url' => ['/site/contacts']],
@@ -115,7 +119,7 @@ AppAsset::register($this);
 
                     <p><?= Yii::t('app', 'ukraine / vinnitsa') ?></p>
 
-                    <p><?= Yii::t('app', 'we are in social networks') ?></p>
+                    <p><?php // Yii::t('app', 'we are in social networks') ?></p>
                 </div>
             </aside>
         </div>
