@@ -106,6 +106,7 @@ class Pet extends ActiveRecordBehaviors
                 $petImage = new PetImage();
                 $petImage->source_url = $fileName;
                 $petImage->pet_id = $this->id;
+                $petImage->alt = '';
                 if(!$petImage->save()) {
                     echo '<pre>'; var_dump($petImage->getErrors()); die();
                 }
