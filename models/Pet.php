@@ -100,7 +100,8 @@ class Pet extends ActiveRecordBehaviors
             $petImage = new PetImage();
             $files = UploadedFile::getInstances($petImage,'source_url');
             foreach($files as $file) {
-                $extension = explode('/', $file->type)[1];
+                $explodedImage = explode('.', $file->name);
+                $extension = end($explodedImage);
                 $fileName = 'images/pets/' . time() . '_' . rand(10000, 99999) . '.' . $extension;
                 $file->saveAs($fileName);
                 $petImage = new PetImage();
