@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    
+  </head>
+  <body>
+  <div class="container">
+      <div class="row">
+          <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+              <!-- Индикаторы для карусели -->
+              <ol class="carousel-indicators">
+                <!-- Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0" -->
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <!-- Перейти к 1 слайду карусели с помощью соответствующего индекса data-slide-to="1" -->
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <!-- Перейти к 2 слайду карусели с помощью соответствующего индекса data-slide-to="2" -->
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>   
+              <!-- Слайды карусели -->
+              <div class="carousel-inner">
+                <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
+                <div class="active item">
+                  <h2>Слайд №1</h2>
+                  <div class="carousel-caption">
+                    <h3>Заголовок 1 слайда</h3>
+                    <p>Текст (описание) 1 слайда...</p>
+                  </div>
+                </div>
+                <!-- Слайд №2 -->
+                <div class="item">
+                  <h2>Slide 2</h2>
+                  <div class="carousel-caption">
+                    <h3>Second slide label</h3>
+                    <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+                  </div>
+                </div>
+                <!-- Слайд №3 -->
+                <div class="item">
+                  <h2>Slide 3</h2>
+                  <div class="carousel-caption">
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Навигация для карусели -->
+              <!-- Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
+              <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <!-- Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next" -->
+              <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+        </div>
+    </div>
+  <div class="container">
+      <div class="row">
+          <nav role="navigation" class="navbar navbar-inverse">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Бренд</a>
+              </div>
+              <!-- Collection of nav links, forms, and other content for toggling -->
+              <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                 <li class="active"><a href="#">Главная</a></li>
+                 <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Наши собаки<b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                      <li><a href="#">пункт 1</a></li>
+                      <li><a href="#">Пункт 2</a></li>
+                      <li><a href="#">Пункт 3</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Щенки</a></li>
+                  <li><a href="#">Галерея</a></li>
+                  <li><a href="#">Наши друзья</a></li>
+                  <li><a href="#">Контакты</a></li>
+                </ul>
+                <form role="search" class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" placeholder="Найти" class="form-control">
+                  </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Войти</a></li>
+                </ul>
+              </div>
+            </nav>
+      </div>
+  </div>
+   <div class="container">
+       <div class="row">
+            <div class="col-lg-10 left-panel" >
+            <p>Дорогие друзья,мы рады приветствовать Вас на сайте питомника «От Госпожи Коваленко»!
+            Мы счастливы, что являемся владельцами великолепных собак породы Чихуахуа - ценим их за преданность, любовь и доверие к нам. Надеемся, что Вы разделите с нами любовь к этим милым малышам! И пусть каждый день, проведённый с самой маленькой собакой в мире наполняет Вашу жизнь задором, счастьем и позитивом!</p></div>
+            <div class="col-lg-2 right-panel" >
+            <img src="http://chihuahua.com.ua/images/phocagallery/puppies/litter_i/thumbs/phoca_thumb_m_dsc_0849.jpg" alt=""></div>
+       </div>
+   </div>
+
+   
+   
+   
+   
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
