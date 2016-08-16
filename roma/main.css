@@ -1,0 +1,36 @@
+body{
+    background: url(IsjVfa32YEs.jpg);
+ 
+}
+
+/*слайдер*/
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: 20px;
+}
+/*сетка*/
+
+.col-lg-10.left-panel{
+    background-color: #764e94;
+    
+}
+.col-lg-10 p {
+    color: #fff;
+}
+.col-lg-2 {
+}
+.col-lg-2.right-panel{
+}
+.col-lg-2 img {
+}
