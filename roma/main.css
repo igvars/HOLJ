@@ -58,3 +58,12 @@ h2{
 }
 
 
+.main-container2 {
+   background-color: rgba(255,255,255,0.75);
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #fff;
+    color: #333;
+    margin-bottom: 30px; 
+}
+
