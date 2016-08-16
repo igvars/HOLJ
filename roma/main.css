@@ -31,7 +31,11 @@ h2{
 
 .main-container {
     padding: 15px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.75);
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #fff;
+    
     
 }
 .main-container img {
