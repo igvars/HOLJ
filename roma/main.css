@@ -21,13 +21,7 @@ h2{
 }
 /*сетка*/
 
-.col-lg-10.left-panel{
-    background-color: #764e94;
-    
-}
-.col-lg-10 p {
-    color: #fff;
-}
+
 
 .main-container {
     padding: 15px;
@@ -35,7 +29,7 @@ h2{
     border: 2px solid #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 #fff;
-    
+    color: #333;    
     
 }
 .main-container img {
