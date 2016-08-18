@@ -48,11 +48,9 @@
         transform: translate3d(0, 0, 0);
     }
 }
-/* the slides */
 .slick-slide {
     margin: 0 10px;
 }
-/* the parent */
 .slick-list {
     margin: 0 -10px;
 }
@@ -66,4 +64,21 @@
 }
 .contact-container {
     margin: 30px 0;
+}
+.slider-for .slick-slide {
+    margin: 0;
+}
+
+.slider-for .slick-list,
+.slider-nav .slick-list {
+    margin: 0;
+}
+.pet-slide img {
+    width: 100%;
+}
+.slider-for {
+    margin: 30px 0 15px;
+}
+.slider-nav {
+    margin: 15px 0 30px;
 }

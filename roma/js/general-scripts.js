@@ -1,27 +1,23 @@
 "use strict";
 
-$('.trending-pets').slick({
-    slidesToShow: 4,
+$('.slider-for').slick({
+    slidesToShow: 1,
     slidesToScroll: 1,
-    // variableWidth: true,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    centerMode: true,
+    focusOnSelect: true,
     responsive: [
-        {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 3
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2,
-                arrows: false
-            }
-        },
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 arrows: false
             }
         }
