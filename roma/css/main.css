@@ -85,3 +85,7 @@
 .related-container {
     padding-bottom: 30px;
 }
+.our-friends-list {
+    margin-bottom: 30px;
+    list-style: none;
+}
