@@ -89,3 +89,10 @@
     margin-bottom: 30px;
     list-style: none;
 }
+.gallery-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.modal-content .modal-body {
+    padding-bottom: 45px;
+}
