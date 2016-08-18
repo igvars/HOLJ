@@ -12,36 +12,9 @@
 
   </head>
   <body>
-  <div class="container">
-      <div class="row">
-          <div class="col-sm-12">
-              <div id="myCarousel" class="carousel-fade carousel slide" data-interval="3000" data-ride="carousel">
-                  <!-- Слайды карусели -->
-                  <div class="carousel-inner">
-                      <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
-                      <div class="active item">
-                          <img src="slaid2.png" alt="">
-                          <h2>Слайд №1</h2>
-                      </div>
-                      <!-- Слайд №2 -->
-                      <div class="item">
-                          <img src="slaid1.png" alt="">
-                          <h2>Slide 2</h2>
-                      </div>
-                      <!-- Слайд №3 -->
-                      <div class="item">
-                          <img src="slaid2.png" alt="">
-                          <h2>Slide 3</h2>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-    </div>
-  <div class="container">
-      <div class="row">
-          <div class="col-sm-12">
-              <nav role="navigation" class="navbar navbar-default">
+              <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+
+                  <div class="container">
                   <!-- Brand and toggle get grouped for better mobile display -->
                   <div class="navbar-header">
                       <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -54,7 +27,7 @@
                   </div>
                   <!-- Collection of nav links, forms, and other content for toggling -->
                   <div id="navbarCollapse" class="collapse navbar-collapse">
-                      <ul class="nav navbar-nav">
+                      <ul class="nav navbar-nav navbar-right">
                           <li class="active"><a href="#">Главная</a></li>
                           <li class="dropdown">
                               <a data-toggle="dropdown" class="dropdown-toggle" href="#">Наши собаки<b class="caret"></b></a>
@@ -70,8 +43,28 @@
                           <li><a href="#">Контакты</a></li>
                       </ul>
                   </div>
+                      </div>
               </nav>
 
+  </div>
+
+  <div id="myCarousel" class="carousel-fade carousel slide" data-interval="3000" data-ride="carousel">
+      <!-- Слайды карусели -->
+      <div class="carousel-inner">
+          <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
+          <div class="active item">
+              <img src="slaid2.png" alt="">
+              <h2>Слайд №1</h2>
+          </div>
+          <!-- Слайд №2 -->
+          <div class="item">
+              <img src="slaid1.png" alt="">
+              <h2>Slide 2</h2>
+          </div>
+          <!-- Слайд №3 -->
+          <div class="item">
+              <img src="slaid2.png" alt="">
+              <h2>Slide 3</h2>
           </div>
       </div>
   </div>

@@ -1,5 +1,6 @@
 body{
     background: url("IsjVfa32YEs.jpg");
+    margin-top: 50px;
 }
 /*слайдер*/
 h2{
@@ -14,8 +15,8 @@ h2{
     text-align: center;
     height: 300px !important;
 }
-.carousel{
-    margin-top: 20px;
+.item img {
+    width: 100%;
 }
 /*сетка*/
 .main-container {
