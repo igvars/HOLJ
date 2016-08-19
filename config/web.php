@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'holj',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'name' => Yii::t('app','Home of little joys'),

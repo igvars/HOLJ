@@ -102,3 +102,6 @@
 .main-padding-bottom {
     padding-bottom: 30px;
 }
+.header-filter:after {
+    background-color: transparent;
+}

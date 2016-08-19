@@ -12,25 +12,15 @@ $this->title = Yii::$app->name;
 ?>
 <div class="landing-page">
     <div class="wrapper">
-        <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1 class="title"><?= Yii::$app->name ?></h1>
-                        <h4>
-                            <?= Yii::t('app', 'We are happy that the owners are great dogs. We value them for their devotion, love and trust in us. We hope that you share our love for these cute babies! And let each day spent with the smallest dog in the world fills your life enthusiasm, happiness and positive!') ?>
-                        </h4>
-                    </div>
-                </div>
-            </div>
+        <div class="header header-filter" style="background-image: url('/images/homepage-background.jpg');">
         </div>
 
         <div class="main main-raised">
             <div class="container main-padding-top">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-offset-2 col-md-8">
                         <div class="text-center">
-                            <p><?= Yii::t('app', 'Additional description') ?></p>
+                            <p><?= Yii::t('app', 'We are happy that the owners are great dogs. We value them for their devotion, love and trust in us. We hope that you share our love for these cute babies! And let each day spent with the smallest dog in the world fills your life enthusiasm, happiness and positive!') ?></p>
                         </div>
                     </div>
                 </div>
