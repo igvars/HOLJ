@@ -127,4 +127,11 @@ class SiteController extends BaseController
         }
         return $this->render('breed', ['model' => $model]);
     }
+    public function actionPet($id) {
+        $model = Pet::findOne($id);
+        if(!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        return $this->render('pet', ['model' => $model]);
+    }
 }
