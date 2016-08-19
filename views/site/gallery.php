@@ -35,7 +35,7 @@ $this->title = Yii::$app->name;
     </div>
 
     <div class="wrapper">
-        <div class="header header-filter" style="background-image: url('img/examples/city.jpg');"></div>
+        <div class="header header-filter" style="background-image: url('/images/bg.jpg');"></div>
         <div class="main main-raised">
             <div class="profile-content">
                 <div class="container gallery-container">
