@@ -35,36 +35,22 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="slider-for">
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d2f/GjnTUzB20pk.jpg" alt="">
-                                        </div>
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d26/xZVnswIzYZI.jpg" alt="">
-                                        </div>
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d1d/iLSHuQgfR90.jpg" alt="">
-                                        </div>
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d14/f8IGXDj2LRY.jpg" alt="">
-                                        </div>
+                                        <?php foreach ($model->petImages as $petImage) { ?>
+                                            <div class="pet-slide">
+                                                <img src="/<?= $petImage->source_url?>" alt="<?= $model->name ?>">
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="slider-nav">
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d2f/GjnTUzB20pk.jpg" alt="">
-                                        </div>
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d26/xZVnswIzYZI.jpg" alt="">
-                                        </div>
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d1d/iLSHuQgfR90.jpg" alt="">
-                                        </div>
-                                        <div class="pet-slide">
-                                            <img src="https://pp.vk.me/c637918/v637918904/5d14/f8IGXDj2LRY.jpg" alt="">
-                                        </div>
+                                        <?php foreach ($model->petImages as $petImage) { ?>
+                                            <div class="pet-slide">
+                                                <img src="/<?= $petImage->source_url?>" alt="<?= $model->name ?>">
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
