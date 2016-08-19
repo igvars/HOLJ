@@ -52,8 +52,9 @@ AppAsset::register($this);
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?= Yii::t('app', 'Our dogs') ?><b class="caret"></b></a>
                             <ul role="menu" class="dropdown-menu">
-                                <li><a href="our-dogs.html">Порода 1</a></li>
-                                <li><a href="our-dogs.html">Порода 2</a></li>
+                                <?php foreach (BaseView::getBreedItems() as $breedItem) { ?>
+                                    <li><a href="<?= $breedItem['url']?>"><?= $breedItem['label']?></a></li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li><a href="<?= Url::to(['/site/puppies'])?>"><?= Yii::t('app', 'Puppies') ?></a></li>

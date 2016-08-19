@@ -1,9 +1,11 @@
 <?php
 use app\models\Pet;
+use app\models\Breed;
 
 /**
  * @var $this yii\web\View
  * @var Pet[] $pets
+ * @var Breed[] $breeds
  */
 
 $this->title = Yii::$app->name;
@@ -38,87 +40,36 @@ $this->title = Yii::$app->name;
                     <div class="row">
                         <div class="col-md-12 nav-align-center">
                             <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                                <li class="active">
-                                    <a href="#pill1" role="tab" data-toggle="tab">
-                                        Порода 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#pill2" role="tab" data-toggle="tab">
-                                        Порода 2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#pill3" role="tab" data-toggle="tab">
-                                        Порода 3
-                                    </a>
-                                </li>
+                                <?php foreach ($breeds as $key => $breed) {
+                                ?>
+                                    <li <?= $key==0?'class="active"':''?>>
+                                        <a href="#pill<?= $key?>" role="tab" data-toggle="tab">
+                                            <?= $breed->name ?>
+                                        </a>
+                                    </li>
+                                <?php
+                                } ?>
                             </ul>
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="pill1">
+                                <?php foreach ($breeds as $key => $breed) {
+                                ?>
+                                <div role="tabpanel" class="tab-pane fade <?= $key==0?'class="active in"':''?>" id="pill<?= $key ?>">
                                     <div class="col-md-12">
-                                        <h3>Помет А</h3>
+                                        <h3><?= $breed->broods[0]->name ?></h3>
                                     </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c631527/v631527904/4432e/Z-s4fogTsFY.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c615817/v615817189/16cc1/7kB71YGjE1Q.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c615817/v615817189/16ca3/6GU1l0hhi_Q.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c637918/v637918904/5d26/xZVnswIzYZI.jpg" alt="">
-                                        </a>
-                                    </div>
+                                    <?php foreach ($breed->broods[0]->pets as $pet ) { ?>
+                                        <div class="col-md-3">
+                                            <a class="pet" href="<?= Yii::$app->urlManager->createUrl(['site/pet', 'id'=>$pet->id])?>">
+                                                <img class="img-rounded img-responsive img-raised"  src="<?= $pet->petImages[0]->source_url ?>" alt="<?= $pet->name ?>">
+                                            </a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html"><?= Yii::t('app', 'view all')?></a>
+                                        <a  class="btn btn-primary btn-round btn-group-raised" href="<?= Yii::$app->urlManager->createUrl(['site/breed', 'id'=>$breed->id])?>"><?= Yii::t('app', 'view all')?></a>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="pill2">
-                                    <div class="col-md-12">
-                                        <h3>Помет B</h3>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c615817/v615817189/16ca3/6GU1l0hhi_Q.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c637918/v637918904/5d26/xZVnswIzYZI.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html"><?= Yii::t('app', 'view all')?></a>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="pill3">
-                                    <div class="col-md-12">
-                                        <h3>Помет C</h3>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c636117/v636117904/23baf/xbmDuqI8GB0.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a class="pet" href="pet.html">
-                                            <img class="img-rounded img-responsive img-raised"  src="https://pp.vk.me/c636117/v636117904/23bdc/4ST0AvBW3wo.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html"><?= Yii::t('app', 'view all')?></a>
-                                    </div>
-                                </div>
+                                <?php
+                                } ?>
                             </div>
                         </div>
                     </div>

@@ -53,7 +53,11 @@ class SiteController extends BaseController
     public function actionIndex()
     {
         $pets = Pet::find()->all();
-        return $this->render('index',['pets'=>$pets]);
+        $breeds = Breed::find()->active()->all();
+        return $this->render('index',[
+            'pets'=>$pets,
+            'breeds' => $breeds
+        ]);
     }
 
     public function actionLogin()
@@ -114,5 +118,13 @@ class SiteController extends BaseController
 
     public function actionOurFriends() {
         return $this->render('our-friends');
+    }
+    
+    public function actionBreed($id) {
+        $model = Breed::findOne($id);
+        if(!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        return $this->render('breed', ['model' => $model]);
     }
 }
