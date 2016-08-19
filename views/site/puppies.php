@@ -4,7 +4,7 @@
 /**
  * @var \app\models\Breed $model
  */
-$this->title = Yii::$app->name;
+$this->title = Yii::t('app', 'Puppies') . ' | ' . Yii::$app->name;
 ?>
 <div class="site-index">
 

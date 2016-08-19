@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = Yii::$app->name;
+$this->title = Yii::t('app', 'Gallery') . ' | ' . Yii::$app->name;
 ?>
 <div class="profile-page">
 

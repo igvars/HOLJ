@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact us';
+$this->title = Yii::t('app', 'Contacts') . ' | ' . Yii::$app->name;
 ?>
 <div class="profile-page">
     <div class="wrapper">
