@@ -14,8 +14,10 @@ $this->title = Yii::$app->name;
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="title">Home of little joys</h1>
-                        <h4>Мы счастливы, что являемся владельцами великолепных собак. Мы ценим их за преданность, любовь и доверие к нам. Надеемся, что Вы разделите с нами любовь к этим милым малышам! И пусть каждый день, проведённый с самой маленькой собакой в мире наполняет Вашу жизнь задором, счастьем и позитивом!</h4>
+                        <h1 class="title"><?= Yii::$app->name ?></h1>
+                        <h4>
+                            <?= Yii::t('app', 'We are happy that the owners are great dogs. We value them for their devotion, love and trust in us. We hope that you share our love for these cute babies! And let each day spent with the smallest dog in the world fills your life enthusiasm, happiness and positive!') ?>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -26,7 +28,7 @@ $this->title = Yii::$app->name;
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-center">
-                            <p>Дополнительное описание</p>
+                            <p><?= Yii::t('app', 'Additional description') ?></p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +80,7 @@ $this->title = Yii::$app->name;
                                         </a>
                                     </div>
                                     <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html">Смотреть еще...</a>
+                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html"><?= Yii::t('app', 'view all')?></a>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="pill2">
@@ -96,7 +98,7 @@ $this->title = Yii::$app->name;
                                         </a>
                                     </div>
                                     <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html">Смотреть еще...</a>
+                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html"><?= Yii::t('app', 'view all')?></a>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="pill3">
@@ -114,7 +116,7 @@ $this->title = Yii::$app->name;
                                         </a>
                                     </div>
                                     <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html">Смотреть еще...</a>
+                                        <a  class="btn btn-primary btn-round btn-group-raised" href="breed.html"><?= Yii::t('app', 'view all')?></a>
                                     </div>
                                 </div>
                             </div>
@@ -144,25 +146,25 @@ $this->title = Yii::$app->name;
                     <div class="row">
                         <div class="text-center">
                             <div class="name">
-                                <h3 class="title main-padding-top">Леся Усатюк</h3>
-                                <h6>Владелец & Заводчик</h6>
-                                <h6>Питомник «Home of little joys»</h6>
+                                <h3 class="title main-padding-top"><?= Yii::t('app', 'Lesya Usatyuk')?></h3>
+                                <h6><?= Yii::t('app', 'Owner & Breeder')?></h6>
+                                <h6><?= Yii::t('app', "Nursery «".Yii::$app->name."»")?></h6>
                             </div>
                         </div>
                         <div class="col-md-6 nav-align-center">
-                            <h3 class="text-primary"><i class="fa fa-map-marker"></i> Мы находимся</h3>
+                            <h3 class="text-primary"><i class="fa fa-map-marker"></i> <?= Yii::t('app', 'Our location')?></h3>
                             <p>
-                                Винница,<br>
-                                Украина
+                                <?= Yii::t('app', 'Vinnytsia')?>,<br>
+                                <?= Yii::t('app', 'Ukraine')?>
                             </p>
                         </div>
                         <div class="col-md-6 nav-align-center">
-                            <h3 class="text-primary"><i class="fa fa-phone"></i> Как связаться</h3>
+                            <h3 class="text-primary"><i class="fa fa-phone"></i> <?= Yii::t('app', 'How to contact') ?></h3>
                             <p>
-                                Леся Усатюк<br>
+                                <?= Yii::t('app', 'Lesya Usatyuk')?><br>
                                 <a href="tel:+380636659660">+380 63 665 96 60</a><br>
                                 <a href="tel:+380677005275">+380 67 700 52 75</a><br>
-                                Пн - Пт, 10:00-20:00
+                                <?= Yii::t('app', 'Mon - Fri')?>, 10:00-20:00
                             </p>
                         </div>
                     </div>
