@@ -71,6 +71,13 @@ AppAsset::register($this);
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?= Yii::t('app', 'Language') ?><b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['/', 'lang_id' => '1']) ?>"><img src="/images/flags/US.png" alt="en"></a></li>
+                                <li><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['/', 'lang_id' => '2']) ?>"><img src="/images/flags/RU.png" alt="ru"></a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
