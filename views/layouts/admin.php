@@ -37,12 +37,12 @@ AdminAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Menu', 'url' => ['/admin/index']],
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => Yii::t('app', 'Menu'), 'url' => ['/admin/index']],
+            ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Login', 'url' => ['/site/login']] :
                 [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    'label' => Yii::t('app', 'Logout').' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ],
