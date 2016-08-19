@@ -41,6 +41,9 @@ $this->title = Yii::$app->name;
                         <div class="col-md-12 nav-align-center">
                             <ul class="nav nav-pills nav-pills-primary" role="tablist">
                                 <?php foreach ($breeds as $key => $breed) {
+                                    if($key==3) {
+                                        break;
+                                    }
                                 ?>
                                     <li <?= $key==0?'class="active"':''?>>
                                         <a href="#pill<?= $key?>" role="tab" data-toggle="tab">
@@ -52,6 +55,9 @@ $this->title = Yii::$app->name;
                             </ul>
                             <div class="tab-content">
                                 <?php foreach ($breeds as $key => $breed) {
+                                    if($key==3) {
+                                        break;
+                                    }
                                 ?>
                                 <div role="tabpanel" class="tab-pane fade <?= $key==0?'active in':''?>" id="pill<?= $key ?>">
                                     <div class="col-md-12">

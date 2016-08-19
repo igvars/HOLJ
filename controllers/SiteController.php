@@ -52,10 +52,8 @@ class SiteController extends BaseController
 
     public function actionIndex()
     {
-        $pets = Pet::find()->all();
         $breeds = Breed::find()->active()->all();
         return $this->render('index',[
-            'pets'=>$pets,
             'breeds' => $breeds
         ]);
     }
@@ -104,12 +102,12 @@ class SiteController extends BaseController
         return $this->render('our-dogs');
     }
 
-    public function actionPuppies($id) {
-        $model = Breed::findOne($id);
-        if(!$model) {
+    public function actionPuppies() {
+        $breeds = Breed::find()->active()->all();
+        if(!$breeds) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-        return $this->render('puppies', ['model' => $model]);
+        return $this->render('puppies', ['breeds' => $breeds]);
     }
 
     public function actionGallery() {
