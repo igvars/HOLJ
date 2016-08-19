@@ -18,7 +18,7 @@ class BaseView extends View {
         foreach(Breed::find()->active()->all() as $breed) {
             $breedItems[] = [
                 'label' => $breed->name,
-                'url' => \Yii::$app->urlManager->createUrl(['/site/puppies','id'=>$breed->id])
+                'url' => \Yii::$app->urlManager->createUrl(['/site/breed','id'=>$breed->id])
             ];
 //            $breedItems[] = '<li class="divider"></li>';
         }
