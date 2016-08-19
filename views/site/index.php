@@ -53,7 +53,7 @@ $this->title = Yii::$app->name;
                             <div class="tab-content">
                                 <?php foreach ($breeds as $key => $breed) {
                                 ?>
-                                <div role="tabpanel" class="tab-pane fade <?= $key==0?'class="active in"':''?>" id="pill<?= $key ?>">
+                                <div role="tabpanel" class="tab-pane fade <?= $key==0?'active in':''?>" id="pill<?= $key ?>">
                                     <div class="col-md-12">
                                         <h3><?= $breed->broods[0]->name ?></h3>
                                     </div>
