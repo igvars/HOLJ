@@ -23,28 +23,28 @@ $this->title = 'Contact';
                                 <img src="https://pp.vk.me/c633619/v633619189/2d1bb/-VyCwY4_r_g.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
                             </div>
                             <div class="name">
-                                <h3 class="title main-padding-top">Леся Усатюк</h3>
-                                <h6>Владелец & Заводчик</h6>
-                                <h6>Питомник «Home of little joys»</h6>
+                                <h3 class="title main-padding-top"><?= Yii::t('app', 'Lesya Usatyuk')?></h3>
+                                <h6><?= Yii::t('app', 'Owner & Breeder')?></h6>
+                                <h6><?= Yii::t('app', "Nursery «".Yii::$app->name."»")?></h6>
                             </div>
                         </div>
                     </div>
                     <div class="contact-container">
                         <div class="row">
                             <div class="col-md-6 nav-align-center">
-                                <h3 class="text-primary"><i class="fa fa-map-marker"></i> Мы находимся</h3>
+                                <h3 class="text-primary"><i class="fa fa-map-marker"></i> <?= Yii::t('app', 'Our location')?></h3>
                                 <p>
-                                    Винница,<br>
-                                    Украина
+                                    <?= Yii::t('app', 'Vinnytsia')?>,<br>
+                                    <?= Yii::t('app', 'Ukraine')?>
                                 </p>
                             </div>
                             <div class="col-md-6 nav-align-center">
-                                <h3 class="text-primary"><i class="fa fa-phone"></i> Как связаться</h3>
+                                <h3 class="text-primary"><i class="fa fa-phone"></i> <?= Yii::t('app', 'How to contact') ?></h3>
                                 <p>
-                                    Леся Усатюк<br>
+                                    <?= Yii::t('app', 'Lesya Usatyuk')?><br>
                                     <a href="tel:+380636659660">+380 63 665 96 60</a><br>
                                     <a href="tel:+380677005275">+380 67 700 52 75</a><br>
-                                    Пн - Пт, 10:00-20:00
+                                    <?= Yii::t('app', 'Mon - Fri')?>, 10:00-20:00
                                 </p>
                             </div>
                         </div>
