@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\components\BaseController;
 use app\models\Breed;
 use app\models\Pet;
+use app\models\Slide;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -104,14 +105,12 @@ class SiteController extends BaseController
 
     public function actionPuppies() {
         $breeds = Breed::find()->active()->all();
-        if(!$breeds) {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
         return $this->render('puppies', ['breeds' => $breeds]);
     }
 
     public function actionGallery() {
-        return $this->render('gallery');
+        $models = Slide::find()->active()->all();
+        return $this->render('gallery', ['models' => $models]);
     }
 
     public function actionOurFriends() {
