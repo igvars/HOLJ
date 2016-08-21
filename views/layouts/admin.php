@@ -37,8 +37,6 @@ AdminAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => Yii::t('app', 'Menu'), 'url' => ['/admin/index']],
-            ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Login', 'url' => ['/site/login']] :
                 [
@@ -53,6 +51,10 @@ AdminAsset::register($this);
 
     <div class="container">
         <?= Breadcrumbs::widget([
+            'homeLink' => [
+                'label' => Yii::t('app', 'Menu'),
+                'url' => Yii::$app->urlManager->createUrl('/admin'),
+            ],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= $content ?>
