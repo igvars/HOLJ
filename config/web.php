@@ -15,6 +15,7 @@ $config = [
         ],
         'request' => [
             'class' => 'app\components\LangRequest',
+            'baseUrl'=> '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'LZqcjOAWRvOjr0B3JPkF4g0m6WsMOsod',
         ],
