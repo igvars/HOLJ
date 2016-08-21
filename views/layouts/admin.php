@@ -29,7 +29,7 @@ AdminAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => Yii::$app->urlManager->createUrl('/'),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -44,6 +44,13 @@ AdminAsset::register($this);
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ],
+            [
+                'label' => Yii::t('app', 'Language'),
+                'items' => [
+                    ['label' => 'English', 'url' => Yii::$app->urlManager->createAbsoluteUrl(['/admin', 'lang_id' => '1'])],
+                    ['label' => 'Русский', 'url' => Yii::$app->urlManager->createAbsoluteUrl(['/admin', 'lang_id' => '2'])],
+                ],
+            ],
         ],
     ]);
     NavBar::end();

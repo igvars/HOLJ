@@ -1,13 +1,13 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
-
+require (__DIR__ . '/../models/Lang.php');
 $config = [
     'id' => 'holj',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'name' => Yii::t('app','Home of little joys'),
-    'language'=>'ru-RU',
+    'language'=>\app\models\Lang::$current['local'],
     'sourceLanguage' => 'en-US',
     'components' => [
         'authManager' => [
