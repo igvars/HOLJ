@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Brood */
@@ -13,6 +14,17 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'date')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => Yii::t('app', 'Enter birth date ...')],
+        'type' => DatePicker::TYPE_COMPONENT_APPEND,
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'yyyy-mm-dd',
+        ],
+        'removeButton' => false,
+        'language' => \app\models\Lang::getCurrent()['local'],
+    ]); ?>
 
     <?= $form->field($model, 'breed_id')->dropDownList(\app\models\Breed::getAll()) ?>
 

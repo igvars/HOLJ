@@ -15,24 +15,28 @@ $this->title = Yii::$app->name;
                 echo Nav::widget([
                     'items' => [
                         [
-                            'label' => 'Breed',
+                            'label' => Yii::t('app', 'Breeds'),
                             'url' => Yii::$app->urlManager->createUrl(['breed/index']),
                         ],
                         [
-                            'label' => 'Brood',
+                            'label' => Yii::t('app', 'Broods'),
                             'url' => Yii::$app->urlManager->createUrl(['brood/index']),
                         ],
                         [
-                            'label' => 'Pet',
+                            'label' => Yii::t('app', 'Pets'),
                             'url' => Yii::$app->urlManager->createUrl(['pet/index']),
                         ],
                         [
-                            'label' => 'Content',
+                            'label' => Yii::t('app', 'Messages'),
                             'url' => Yii::$app->urlManager->createUrl(['message/index']),
                         ],
                         [
-                            'label' => 'Main Slider',
+                            'label' => Yii::t('app', 'Gallery'),
                             'url' => Yii::$app->urlManager->createUrl(['slide/index']),
+                        ],
+                        [
+                            'label' => Yii::t('app', 'Our friends'),
+                            'url' => Yii::$app->urlManager->createUrl(['our-friend/index']),
                         ],
                     ],
                     'options' => ['class' =>'nav-stacked'], // set this to nav-tab to get tab-styled navigation

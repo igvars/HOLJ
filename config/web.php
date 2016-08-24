@@ -1,13 +1,13 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
-
+require (__DIR__ . '/../models/Lang.php');
 $config = [
-    'id' => 'basic',
+    'id' => 'holj',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'name' => Yii::t('app','Home of little joys'),
-    'language'=>'ru-RU',
+    'language'=>\app\models\Lang::$current['local'],
     'sourceLanguage' => 'en-US',
     'components' => [
         'authManager' => [
@@ -15,6 +15,7 @@ $config = [
         ],
         'request' => [
             'class' => 'app\components\LangRequest',
+            'baseUrl'=> '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'LZqcjOAWRvOjr0B3JPkF4g0m6WsMOsod',
         ],
@@ -61,6 +62,10 @@ $config = [
                 '/our-friends' => 'site/our-friends',
                 '/contacts' => 'site/contacts',
                 '/pet-status' => 'pet-status/index',
+                'our-friend/index' => 'our-friend/index',
+                'our-friend/update' => 'our-friend/update',
+                'our-friend/create' => 'our-friend/create',
+                'our-friend/view' => 'our-friend/view',
                 'slide/change-status' => 'slide/change-status',
                 'breed/change-status' => 'breed/change-status',
                 'brood/change-status' => 'brood/change-status',

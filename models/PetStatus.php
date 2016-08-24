@@ -16,6 +16,9 @@ use yii\helpers\ArrayHelper;
  */
 class PetStatus extends ActiveRecordBehaviors
 {
+    const ACTIVE = 1;
+    const INACTIVE = 2;
+    const IS_PROTECTED = 3;
     /**
      * @inheritdoc
      */

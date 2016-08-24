@@ -20,8 +20,10 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="icon" type="image/png" href="<?= Yii::$app->getHomeUrl() ?>images/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -29,114 +31,84 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrapper">
     <?php //echo WLang::widget();?>
-    <header class="container">
-        <div class="row">
-                <?php
-                /** @var Slide[] $slides */
-                $slides = Slide::find()->active()->all();
-                $items = [];
-                foreach($slides as $slide) {
-                    $items[] = "<img src='/{$slide->source_url}'>";
-                }
-                ?>
-            <div class="col-xs-12">
+    <header>
 
-                <div id="main-slider" class="carousel slide carousel-fade" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <?php for($i=0; $i< count($items); ++$i) { ?>
-                            <li data-target="#main-slider" data-slide-to="<?= $i ?>" <?= !$i?'class="active"':''?>></li>
-                        <?php } ?>
-                    </ol>
+        <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?= Yii::$app->urlManager->createUrl('/') ?>"><?= Yii::$app->name ?></a>
+                </div>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <?php foreach($items as $index => $item) : ?>
-
-                            <div class="<?= !$index?'active':'' ?> item">
-                                <?= $item ?>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
+                <div class="collapse navbar-collapse" id="navigation-example">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?= Yii::t('app', 'Our dogs') ?><b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+                                <?php foreach (BaseView::getBreedItems() as $breedItem) { ?>
+                                    <li><a href="<?= $breedItem['url']?>"><?= $breedItem['label']?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li><a href="<?= Url::to(['/site/puppies'])?>"><?= Yii::t('app', 'Puppies') ?></a></li>
+                        <li><a href="<?= Url::to(['/site/gallery'])?>"><?= Yii::t('app', 'Gallery') ?></a></li>
+                        <li><a href="<?= Url::to(['/site/our-friends'])?>"><?= Yii::t('app', 'Our friends') ?></a></li>
+                        <li><a href="<?= Url::to(['/site/contacts'])?>"><?= Yii::t('app', 'Contacts') ?></a></li>
+                        <li>
+                            <a href="https://vk.com/id363164189" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+                                <i class="fa fa-vk"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/home_sweet_pleasures/" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?= Yii::t('app', 'Language') ?><b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['/', 'lang_id' => '1']) ?>"><img src="/images/flags/US.png" alt="en"></a></li>
+                                <li><a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['/', 'lang_id' => '2']) ?>"><img src="/images/flags/RU.png" alt="ru"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12"><?php
-                NavBar::begin([
-                    'brandLabel' => Yii::$app->name,
-                    'brandUrl'   => Yii::$app->homeUrl,
-                ]);
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items'   => [
-                        ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
-                        ['label' => Yii::t('app', 'Our dogs'), 'url' => ['/site/our-dogs']],
-                        [
-                            'label' => Yii::t('app', 'Puppies'),
-                            'items' => BaseView::getBreedItems(),
-                        ],
-//                        ['label' => , 'url' => ['/site/puppies']],
-//                        ['label' => Yii::t('app', 'Gallery'), 'url' => ['/site/gallery']],
-//                        ['label' => Yii::t('app', 'Our friends'), 'url' => ['/site/our-friends']],
-                        ['label' => Yii::t('app', 'Contacts'), 'url' => ['/site/contacts']],
-                    ],
-                ]);
-                NavBar::end();
-                ?>
-            </div>
-        </div>
+        </nav>
     </header>
-    <section class="container">
-        <div class="row">
-            <main class="col-xs-12 col-sm-9">
-                <?= Breadcrumbs::widget([
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                    'options' => ['class' => 'common-background common-border breadcrumb']
-                ]) ?>
-                <div class="common-background common-border content">
-                    <?= $content ?>
+    <section>
+        <main>
+            <div class="content">
+                <?= $content ?>
+
+                        <footer class="footer">
+                            <div class="container">
+                                <nav class="pull-left">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= Yii::$app->homeUrl ?>">
+                                                <?= Yii::$app->name ?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="copyright pull-right">
+                                    &copy; <?= date('Y') > 2016 ? "2016-" . date('Y') : date('Y') ?><!--, made with <i class="fa fa-heart heart"></i> by Creative Tim-->
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
                 </div>
-            </main>
-            <aside class="right-side-bar col-xs-12 col-sm-3">
-                <div class="common-background common-border nursery-information">
-                    <p><?= Yii::t('app', 'nursery') ?></p>
-
-                    <p><?= Yii::$app->name ?></p>
-
-                    <p><?= Yii::t('app', 'owner & breeder:') ?></p>
-
-                    <p><?= Yii::t('app', 'Lesya Usatyuk') ?></p>
-
-                    <p><?= Yii::t('app', 'lesyausatyuk@gmail.com') ?></p>
-
-                    <p><?= Yii::t('app', '') ?></p>
-
-                    <p><?= Yii::t('app', '') ?></p>
-
-                    <p><?= Yii::t('app', 'ukraine / vinnitsa') ?></p>
-
-                    <p><?php // Yii::t('app', 'we are in social networks') ?></p>
-                </div>
-            </aside>
-        </div>
-    </section>
-
-</div>
-<footer class="footer container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="footer-text common-background common-border">
-                <p class="center">&copy; <?= Yii::$app->name ?>
-                    <?= date('Y') > 2016 ? "2016-" . date('Y') : date('Y') ?>
-                </p>
             </div>
-        </div>
-    </div>
-</footer>
+        </main>
+    </section>
 
 
 <?php $this->endBody() ?>

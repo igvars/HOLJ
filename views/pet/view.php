@@ -29,6 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'name',
+            'description',
+            'titles',
+            'gender',
+            'size',
+            'mother_id',
+            'is_our_pet',
+            'color',
+            'father_name',
+            'father_link',
             [
                 'label' => 'Breed',
                 'value' => $model->brood->breed->name

@@ -19,7 +19,7 @@ class BroodSearch extends Brood
     {
         return [
             [['id', 'breed_id', 'common_status_id'], 'integer'],
-            [['name', 'date_create', 'date_update'], 'safe'],
+            [['name', 'date', 'date_create', 'date_update'], 'safe'],
         ];
     }
 
@@ -64,6 +64,7 @@ class BroodSearch extends Brood
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'date', $this->date]);
 
         return $dataProvider;
     }

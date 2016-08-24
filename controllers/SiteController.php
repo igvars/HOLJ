@@ -4,7 +4,9 @@ namespace app\controllers;
 
 use app\components\BaseController;
 use app\models\Breed;
+use app\models\OurFriend;
 use app\models\Pet;
+use app\models\Slide;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -52,8 +54,10 @@ class SiteController extends BaseController
 
     public function actionIndex()
     {
-        $pets = Pet::find()->all();
-        return $this->render('index',['pets'=>$pets]);
+        $breeds = Breed::find()->active()->all();
+        return $this->render('index',[
+            'breeds' => $breeds
+        ]);
     }
 
     public function actionLogin()
@@ -96,23 +100,35 @@ class SiteController extends BaseController
         return $this->render('about');
     }
 
-    public function actionOurDogs() {
-        return $this->render('our-dogs');
+    public function actionPuppies() {
+        $breeds = Breed::find()->active()->all();
+        return $this->render('puppies', ['breeds' => $breeds]);
     }
 
-    public function actionPuppies($id) {
+    public function actionGallery() {
+        $models = Slide::find()->active()->all();
+        return $this->render('gallery', ['models' => $models]);
+    }
+
+    public function actionOurFriends() {
+        $models = OurFriend::find()->all();
+        return $this->render('our-friends', [
+            'models' => $models
+        ]);
+    }
+    
+    public function actionBreed($id) {
         $model = Breed::findOne($id);
         if(!$model) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-        return $this->render('puppies', ['model' => $model]);
+        return $this->render('breed', ['model' => $model]);
     }
-
-    public function actionGallery() {
-        return $this->render('gallery');
-    }
-
-    public function actionOurFriends() {
-        return $this->render('our-friends');
+    public function actionPet($id) {
+        $model = Pet::findOne($id);
+        if(!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        return $this->render('pet', ['model' => $model]);
     }
 }
