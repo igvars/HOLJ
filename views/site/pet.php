@@ -37,7 +37,9 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                                     <div class="slider-for">
                                         <?php foreach ($model->petImages as $petImage) { ?>
                                             <div class="pet-slide">
-                                                <img src="/<?= $petImage->source_url?>" alt="<?= $model->name ?>">
+                                                <div class="image-wrapper">
+                                                    <img src="/<?= $petImage->source_url?>" alt="<?= $model->name ?>">
+                                                </div>
                                             </div>
                                         <?php } ?>
                                     </div>
@@ -48,7 +50,9 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                                     <div class="slider-nav">
                                         <?php foreach ($model->petImages as $petImage) { ?>
                                             <div class="pet-slide">
-                                                <img src="/<?= $petImage->source_url?>" alt="<?= $model->name ?>">
+                                                <div class="image-wrapper">
+                                                    <img src="/<?= $petImage->source_url?>" alt="<?= $model->name ?>">
+                                                </div>
                                             </div>
                                         <?php } ?>
                                     </div>
