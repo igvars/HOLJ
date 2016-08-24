@@ -53,9 +53,9 @@ $this->title = Yii::$app->name;
                                     <div class="col-md-12">
                                         <h3><?= $breed->broods[0]->name ?></h3>
                                     </div>
-                                    <?php foreach ($breed->broods[0]->pets as $pet ) { ?>
-                                        <?php echo $this->render('/layouts/pet', ['pet' => $pet]); ?>
-                                    <?php } ?>
+                                    <?php foreach ($breed->broods[0]->puppies as $pet ) {
+                                        echo $this->render('/layouts/pet', ['pet' => $pet]);
+                                    } ?>
                                     <div class="col-md-12">
                                         <a  class="btn btn-primary btn-round btn-group-raised" href="<?= Yii::$app->urlManager->createUrl(['site/breed', 'id'=>$breed->id])?>"><?= Yii::t('app', 'view all')?></a>
                                     </div>

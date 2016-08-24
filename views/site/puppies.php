@@ -39,7 +39,7 @@ $this->title = Yii::t('app', 'Puppies') . ' | ' . Yii::$app->name;
                                             <div class="col-md-12">
                                                 <h3><?= $breed->broods[0]->name ?></h3>
                                             </div>
-                                            <?php foreach ($breed->broods[0]->pets as $pet ) { ?>
+                                            <?php foreach ($breed->broods[0]->puppies as $pet ) { ?>
                                                 <?php echo $this->render('/layouts/pet', ['pet' => $pet]); ?>
                                             <?php } ?>
                                         </div>

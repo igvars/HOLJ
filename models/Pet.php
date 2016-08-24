@@ -6,6 +6,7 @@ use app\components\ActiveRecordBehaviors;
 use app\helpers\FileHelper;
 use Yii;
 use yii\web\UploadedFile;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "pet".
@@ -16,6 +17,15 @@ use yii\web\UploadedFile;
  * @property string $date_update
  * @property integer $brood_id
  * @property integer $pet_status_id
+ * @property string $description
+ * @property string $titles
+ * @property integer $gender
+ * @property integer $size
+ * @property integer $mother_id
+ * @property integer $is_our_pet
+ * @property string $color
+ * @property string $father_name
+ * @property string $father_link
  *
  * @property Brood $brood
  * @property PetStatus $petStatus
@@ -23,8 +33,12 @@ use yii\web\UploadedFile;
  */
 class Pet extends ActiveRecordBehaviors
 {
+    const IS_OUR_PET = 1;
+    const NOT_IS_OUR_PET = 0;
     /** @var integer $breed_id */
     public $breed_id;
+    /** @var integer $mother_id */
+    public $mother_id;
 
     /**
      * @var UploadedFile[] $imageFile
@@ -45,11 +59,10 @@ class Pet extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['name', 'brood_id', 'pet_status_id', 'breed_id'], 'required'],
-            [['date_create', 'date_update'], 'safe'],
-            [['name'], 'unique'],
-            [['brood_id', 'pet_status_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'brood_id', 'pet_status_id', 'breed_id', 'size'], 'required'],
+            [['date_create', 'date_update', 'description', 'titles', 'mother_id'], 'safe'],
+            [['brood_id', 'pet_status_id', 'gender', 'mother_id', 'is_our_pet'], 'integer'],
+            [['name', 'color', 'father_name', 'father_link'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 0],
         ];
     }
@@ -66,6 +79,15 @@ class Pet extends ActiveRecordBehaviors
             'date_update' => Yii::t('app', 'Date Update'),
             'brood_id' => Yii::t('app', 'Brood ID'),
             'pet_status_id' => Yii::t('app', 'Pet Status ID'),
+            'description' => Yii::t('app', 'Description'),
+            'titles' => Yii::t('app', 'Titles'),
+            'gender' => Yii::t('app', 'Gender'),
+            'size' => Yii::t('app', 'Size'),
+            'mother_id' => Yii::t('app', 'Mother ID'),
+            'is_our_pet' => Yii::t('app', 'Is our pet'),
+            'color' => Yii::t('app', 'Color'),
+            'father_name' => Yii::t('app', 'Father name'),
+            'father_link' => Yii::t('app', 'Father link'),
         ];
     }
 
@@ -75,6 +97,14 @@ class Pet extends ActiveRecordBehaviors
     public function getBrood()
     {
         return $this->hasOne(Brood::className(), ['id' => 'brood_id']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMother()
+    {
+        return $this->hasOne(Pet::className(), ['id' => 'mother_id']);
     }
 
     /**
@@ -116,5 +146,20 @@ class Pet extends ActiveRecordBehaviors
             return true;
         }
         return false;
+    }
+
+    public static function find()
+    {
+        return new PetQuery(get_called_class());
+    }
+}
+
+class PetQuery extends ActiveQuery
+{
+    public function active()
+    {
+        return $this->andWhere([
+            'pet_status_id' => PetStatus::ACTIVE,
+        ]);
     }
 }

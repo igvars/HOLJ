@@ -34,6 +34,10 @@ $this->title = Yii::$app->name;
                             'label' => Yii::t('app', 'Gallery'),
                             'url' => Yii::$app->urlManager->createUrl(['slide/index']),
                         ],
+                        [
+                            'label' => Yii::t('app', 'Our friends'),
+                            'url' => Yii::$app->urlManager->createUrl(['our-friend/index']),
+                        ],
                     ],
                     'options' => ['class' =>'nav-stacked'], // set this to nav-tab to get tab-styled navigation
 ]);

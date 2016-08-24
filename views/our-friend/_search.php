@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\BroodSearch */
+/* @var $model app\models\OurFriendSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="brood-search">
+<div class="our-friend-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -19,15 +19,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'date') ?>
-
-    <?= $form->field($model, 'date_create') ?>
-
-    <?= $form->field($model, 'date_update') ?>
-
-    <?= $form->field($model, 'breed_id') ?>
-
-    <?php // echo $form->field($model, 'common_status_id') ?>
+    <?= $form->field($model, 'link') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

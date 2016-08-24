@@ -11,6 +11,7 @@ use yii\helpers\ArrayHelper;
  *
  * @property integer $id
  * @property string $name
+ * @property string $date
  * @property string $date_create
  * @property string $date_update
  * @property integer $breed_id
@@ -19,6 +20,7 @@ use yii\helpers\ArrayHelper;
  * @property Breed $breed
  * @property CommonStatus $commonStatus
  * @property Pet[] $pets
+ * @property Pet[] $puppies
  */
 class Brood extends ActiveRecordBehaviors
 {
@@ -36,8 +38,8 @@ class Brood extends ActiveRecordBehaviors
     public function rules()
     {
         return [
-            [['name', 'breed_id', 'common_status_id'], 'required'],
-            [['date_create', 'date_update'], 'safe'],
+            [['name', 'date', 'breed_id', 'common_status_id'], 'required'],
+            [['date_create', 'date_update', 'date'], 'safe'],
             [['breed_id', 'common_status_id'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
@@ -51,6 +53,7 @@ class Brood extends ActiveRecordBehaviors
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
+            'date' => Yii::t('app', 'Date of birth'),
             'date_create' => Yii::t('app', 'Date Create'),
             'date_update' => Yii::t('app', 'Date Update'),
             'breed_id' => Yii::t('app', 'Breed ID'),
@@ -79,7 +82,17 @@ class Brood extends ActiveRecordBehaviors
      */
     public function getPets()
     {
-        return $this->hasMany(Pet::className(), ['brood_id' => 'id']);
+        return $this->hasMany(Pet::className(), ['brood_id' => 'id'])
+            ->onCondition('pet.is_our_pet = '. Pet::IS_OUR_PET);;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPuppies()
+    {
+        return $this->hasMany(Pet::className(), ['brood_id' => 'id'])
+            ->onCondition('pet.is_our_pet = '. Pet::NOT_IS_OUR_PET);
     }
 
     public static function getAll($breed_id = 0) {

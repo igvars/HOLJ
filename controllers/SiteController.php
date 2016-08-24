@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\components\BaseController;
 use app\models\Breed;
+use app\models\OurFriend;
 use app\models\Pet;
 use app\models\Slide;
 use Yii;
@@ -99,10 +100,6 @@ class SiteController extends BaseController
         return $this->render('about');
     }
 
-    public function actionOurDogs() {
-        return $this->render('our-dogs');
-    }
-
     public function actionPuppies() {
         $breeds = Breed::find()->active()->all();
         return $this->render('puppies', ['breeds' => $breeds]);
@@ -114,7 +111,10 @@ class SiteController extends BaseController
     }
 
     public function actionOurFriends() {
-        return $this->render('our-friends');
+        $models = OurFriend::find()->all();
+        return $this->render('our-friends', [
+            'models' => $models
+        ]);
     }
     
     public function actionBreed($id) {

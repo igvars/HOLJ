@@ -40,6 +40,7 @@ class m160305_233650_base_tables extends Migration
         $this->createTable('brood',[
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
+            'date' => $this->dateTime()->notNull(),
             'date_create' => $this->dateTime()->notNull(),
             'date_update' => $this->dateTime()->notNull(),
             'breed_id' => $this->integer()->notNull(),
@@ -48,6 +49,15 @@ class m160305_233650_base_tables extends Migration
         $this->createTable('pet',[
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
+            'description' => $this->string()->notNull(),
+            'gender' => $this->integer()->notNull(),
+            'size' => $this->string()->notNull(),
+            'color' => $this->string()->notNull(),
+            'titles' => $this->string()->notNull(),
+            'mother_id' => $this->integer(),
+            'father_name' => $this->string()->notNull(),
+            'father_link' => $this->string()->notNull(),
+            'is_our_pet' => $this->string()->notNull(),
             'date_create' => $this->dateTime()->notNull(),
             'date_update' => $this->dateTime()->notNull(),
             'brood_id' => $this->integer()->notNull(),
@@ -62,6 +72,10 @@ class m160305_233650_base_tables extends Migration
         $this->addForeignKey('pet_to_pet_status',
             'pet','pet_status_id',
             'pet_status', 'id',
+            'cascade', 'cascade');
+        $this->addForeignKey('pet_to_mother',
+            'pet','mother_id',
+            'pet', 'id',
             'cascade', 'cascade');
         $this->addForeignKey('breed_to_common_status',
             'breed','common_status_id',
@@ -93,10 +107,16 @@ class m160305_233650_base_tables extends Migration
             'slide','common_status_id',
             'common_status', 'id',
             'cascade', 'cascade');
+        $this->createTable('our_friend',[
+            'id' => $this->primaryKey(),
+            'name' => $this->string()->notNull(),
+            'link' => $this->string()->notNull()
+        ]);
     }
 
     public function down()
     {
+        $this->dropTable('our_friend');
         $this->dropForeignKey('slide_to_common_status', 'slide');
         $this->dropTable('slide');
         $this->dropForeignKey('pet_to_pet_image', 'pet_image');
@@ -104,6 +124,7 @@ class m160305_233650_base_tables extends Migration
         $this->dropForeignKey('brood_to_breed', 'brood');
         $this->dropForeignKey('breed_to_common_status', 'breed');
         $this->dropForeignKey('brood_to_common_status', 'brood');
+        $this->dropForeignKey('pet_to_mother', 'pet');
         $this->dropForeignKey('pet_to_pet_status', 'pet');
         $this->dropTable('pet_image');
         $this->dropTable('pet');

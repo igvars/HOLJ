@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Brood;
+use app\models\OurFriend;
 
 /**
- * BroodSearch represents the model behind the search form about `app\models\Brood`.
+ * OurFriendSearch represents the model behind the search form about `app\models\OurFriend`.
  */
-class BroodSearch extends Brood
+class OurFriendSearch extends OurFriend
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class BroodSearch extends Brood
     public function rules()
     {
         return [
-            [['id', 'breed_id', 'common_status_id'], 'integer'],
-            [['name', 'date', 'date_create', 'date_update'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'link'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class BroodSearch extends Brood
      */
     public function search($params)
     {
-        $query = Brood::find();
+        $query = OurFriend::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,14 +57,10 @@ class BroodSearch extends Brood
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'date_create' => $this->date_create,
-            'date_update' => $this->date_update,
-            'breed_id' => $this->breed_id,
-            'common_status_id' => $this->common_status_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
-        $query->andFilterWhere(['like', 'date', $this->date]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'link', $this->link]);
 
         return $dataProvider;
     }

@@ -1,7 +1,11 @@
 <?php
 
-/* @var $this yii\web\View */
+use app\models\OurFriend;
 
+/* @var $this yii\web\View */
+/**
+ * @var OurFriend[] $models
+ */
 $this->title = Yii::t('app', 'Our friends') . ' | ' . Yii::$app->name;
 ?>
 <div class="profile-page">
@@ -19,12 +23,11 @@ $this->title = Yii::t('app', 'Our friends') . ' | ' . Yii::$app->name;
                             <a href="http://vinksu.ho.ua/" target="_blank"><img src="/images/vinksu1.jpg" alt="vinksu1"></a>
                             <h2><?= Yii::t('app', 'Our friends')?></h2>
                             <ul class="our-friends-list">
-                                <li>
-                                    <a href="http://www.fci.be/" target="_blank">Питомник 1</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.fci.be/" target="_blank">Питомник 2</a>
-                                </li>
+                                <?php foreach ($models as $model) { ?>
+                                    <li>
+                                        <a href="<?= $model->link ?>" target="_blank"><?= $model->name ?></a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>

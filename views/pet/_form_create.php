@@ -13,6 +13,18 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->textarea() ?>
+    <?= $form->field($model, 'titles')->textarea() ?>
+    <?= $form->field($model, 'gender')->dropDownList([
+        '1' => Yii::t('app', 'Male'),
+        '2' => Yii::t('app', 'Female'),
+    ]) ?>
+    <?= $form->field($model, 'size')->textInput() ?>
+    <?php //$form->field($model, 'mother_id')->textInput() ?>
+    <?= $form->field($model, 'is_our_pet')->checkbox() ?>
+    <?= $form->field($model, 'color')->textInput() ?>
+    <?= $form->field($model, 'father_name')->textInput() ?>
+    <?= $form->field($model, 'father_link')->textInput() ?>
 
     <?= $form->field($model, 'breed_id')->dropDownList(\app\models\Breed::getAll(),['prompt'=>Yii::t('app','-- select breed --'),'data-url'=>'/pet/subcategory']) ?>
 

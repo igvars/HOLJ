@@ -58,13 +58,15 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                         <div class="col-md-6">
                             <h1 class="title"><?= $model->name ?></h1>
                             <p>
-                                Дата рождения: <br>
-                                Пол: <br>
-                                Размер: <br>
-                                Окрас:<br>
-                                Титулы:<br>
-                                Мать:<br>
-                                Отец:
+                                Дата рождения: <?= date('Y-m-d', strtotime($model->brood->date)) ?><br>
+                                Пол: <?= $model->gender ?><br>
+                                Размер: <?= $model->size ?><br>
+                                Окрас: <?= $model->color ?><br>
+                                Титулы: <?= $model->titles ?><br>
+                                <?php if($model->mother_id) { ?>
+                                    Мать: <?= $model->getMother()->name ?><br>
+                                <?php } ?>
+                                Отец: <a href="<?= $model->father_link ?>"><?= $model->father_name ?></a>
                             </p>
 
                             <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal1">Родословная</button>
