@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $model app\models\Message */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Message',
-]) . ' "' . $model->id0->message . '" to lang: ' . $model->language;
+    'modelClass' => Yii::t('app', 'message'),
+]) . ' "' . $model->id0->message . '" '. Yii::t('app', 'to lang:'). ' ' . $model->language;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id, 'language' => $model->language]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');

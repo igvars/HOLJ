@@ -76,7 +76,7 @@ class MessageController extends AdminBaseController
         $model = new Message();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'language' => $model->language]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -96,7 +96,7 @@ class MessageController extends AdminBaseController
         $model = $this->findModel($id, $language);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'language' => $model->language]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -25,7 +25,7 @@ $this->title = Yii::t('app', 'Contacts') . ' | ' . Yii::$app->name;
                             <div class="name">
                                 <h3 class="title main-padding-top"><?= Yii::t('app', 'Lesya Usatyuk')?></h3>
                                 <h6><?= Yii::t('app', 'Owner & Breeder')?></h6>
-                                <h6><?= Yii::t('app', "Nursery «".Yii::$app->name."»")?></h6>
+                                <h6><?= Yii::t('app', "Nursery «Home of little joys»")?></h6>
                             </div>
                         </div>
                     </div>
