@@ -102,7 +102,6 @@ AppAsset::register($this);
                                 <div class="copyright pull-right">
                                     &copy; <?= date('Y') > 2016 ? "2016-" . date('Y') : date('Y') ?><!--, made with <i class="fa fa-heart heart"></i> by Creative Tim-->
                                 </div>
-
                             </div>
                         </footer>
                     </div>
