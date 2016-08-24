@@ -59,7 +59,7 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                             <h1 class="title"><?= $model->name ?></h1>
                             <p>
                                 Дата рождения: <?= date('Y-m-d', strtotime($model->brood->date)) ?><br>
-                                Пол: <?= $model->gender ?><br>
+                                Пол: <?= $model->gender == Pet::MALE ? Yii::t('app', 'Male') : Yii::t('app', 'Female') ?><br>
                                 Размер: <?= $model->size ?><br>
                                 Окрас: <?= $model->color ?><br>
                                 Титулы: <?= $model->titles ?><br>

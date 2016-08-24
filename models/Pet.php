@@ -35,6 +35,10 @@ class Pet extends ActiveRecordBehaviors
 {
     const IS_OUR_PET = 1;
     const NOT_IS_OUR_PET = 0;
+    
+    const MALE = 1;
+    const FEMALE = 2;
+    
     /** @var integer $breed_id */
     public $breed_id;
     /** @var integer $mother_id */
