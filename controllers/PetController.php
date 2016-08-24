@@ -81,7 +81,7 @@ class PetController extends AdminBaseController
         $model = new Pet();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -101,7 +101,7 @@ class PetController extends AdminBaseController
         $model->imageFiles = $model->petImages;
         $model->breed_id = $model->brood->breed->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
