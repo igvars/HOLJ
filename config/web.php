@@ -58,6 +58,7 @@ $config = [
                 '/admin' => 'admin/login',
                 '/our-dogs' => 'site/our-dogs',
                 '/puppies' => 'site/puppies',
+                '/puppiesBreed' => 'site/puppies-breed',
                 '/gallery' => 'site/gallery',
                 '/our-friends' => 'site/our-friends',
                 '/contacts' => 'site/contacts',

@@ -8,6 +8,7 @@ use app\models\OurFriend;
 use app\models\Pet;
 use app\models\Slide;
 use Yii;
+use yii\db\ActiveQuery;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -54,7 +55,7 @@ class SiteController extends BaseController
 
     public function actionIndex()
     {
-        $breeds = Breed::find()->active()->all();
+        $breeds = Breed::find()->puppies()->all();
         return $this->render('index',[
             'breeds' => $breeds
         ]);
@@ -101,7 +102,7 @@ class SiteController extends BaseController
     }
 
     public function actionPuppies() {
-        $breeds = Breed::find()->active()->all();
+        $breeds = Breed::find()->puppies()->all();
         return $this->render('puppies', ['breeds' => $breeds]);
     }
 
@@ -123,6 +124,13 @@ class SiteController extends BaseController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
         return $this->render('breed', ['model' => $model]);
+    }
+    public function actionPuppiesBreed($id) {
+        $model = Breed::findOne($id);
+        if(!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        return $this->render('puppiesBreed', ['model' => $model]);
     }
     public function actionPet($id) {
         $model = Pet::findOne($id);

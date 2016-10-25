@@ -16,6 +16,6 @@ class BaseController extends Controller {
     public $layout = "main";
 
     public function getBreeds() {
-        return ArrayHelper::map(Breed::find()->active()->all(),'id','name');
+        return ArrayHelper::map(Breed::find()->puppies()->all(),'id','name');
     }
 }

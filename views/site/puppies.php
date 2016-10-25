@@ -36,12 +36,14 @@ $this->title = Yii::t('app', 'Puppies') . ' | ' . Yii::$app->name;
                                 <div class="tab-content">
                                     <?php foreach ($breeds as $key => $breed) { ?>
                                         <div role="tabpanel" class="tab-pane fade <?= $key==0?'active in':''?>" id="pill<?= $key ?>">
-                                            <div class="col-md-12">
-                                                <h3><?= $breed->broods[0]->name ?></h3>
-                                            </div>
-                                            <?php foreach ($breed->broods[0]->puppies as $pet ) { ?>
-                                                <?php echo $this->render('/layouts/pet', ['pet' => $pet]); ?>
-                                            <?php } ?>
+                                            <?php foreach ($breed->broods as $brood) { ?>
+                                                <div class="col-md-12">
+                                                    <h3><?= $brood->name ?></h3>
+                                                </div>
+                                                <?php foreach ($brood->puppies as $pet ) {
+                                                    echo $this->render('/layouts/pet', ['pet' => $pet]);
+                                                }
+                                            } ?>
                                         </div>
                                     <?php } ?>
                                 </div>

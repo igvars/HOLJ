@@ -30,11 +30,7 @@ $this->title = Yii::$app->name;
                     <div class="row">
                         <div class="col-md-12 nav-align-center">
                             <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                                <?php foreach ($breeds as $key => $breed) {
-                                    if($key==3) {
-                                        break;
-                                    }
-                                ?>
+                                <?php foreach ($breeds as $key => $breed) { ?>
                                     <li <?= $key==0?'class="active"':''?>>
                                         <a href="#pill<?= $key?>" role="tab" data-toggle="tab">
                                             <?= $breed->name ?>
@@ -44,24 +40,19 @@ $this->title = Yii::$app->name;
                                 } ?>
                             </ul>
                             <div class="tab-content">
-                                <?php foreach ($breeds as $key => $breed) {
-                                    if($key==3) {
-                                        break;
-                                    }
-                                ?>
+                                <?php foreach ($breeds as $key => $breed) : ?>
                                 <div role="tabpanel" class="tab-pane fade <?= $key==0?'active in':''?>" id="pill<?= $key ?>">
                                     <div class="col-md-12">
-                                        <h3><?= $breed->broods[0]->name ?></h3>
+                                        <h3><?= $breed->brood->name ?></h3>
                                     </div>
-                                    <?php foreach ($breed->broods[0]->puppies as $pet ) {
+                                    <?php foreach ($breed->brood->puppies as $pet ) {
                                         echo $this->render('/layouts/pet', ['pet' => $pet]);
                                     } ?>
                                     <div class="col-md-12">
-                                        <a  class="btn btn-primary btn-round btn-group-raised" href="<?= Yii::$app->urlManager->createUrl(['site/breed', 'id'=>$breed->id])?>"><?= Yii::t('app', 'view all')?></a>
+                                        <a  class="btn btn-primary btn-round btn-group-raised" href="<?= Yii::$app->urlManager->createUrl(['site/puppies-breed', 'id'=>$breed->id])?>"><?= Yii::t('app', 'view all')?></a>
                                     </div>
                                 </div>
-                                <?php
-                                } ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>

@@ -83,7 +83,7 @@ class Brood extends ActiveRecordBehaviors
     public function getPets()
     {
         return $this->hasMany(Pet::className(), ['brood_id' => 'id'])
-            ->onCondition('pet.is_our_pet = '. Pet::IS_OUR_PET);;
+            ->onCondition('pet.is_our_pet = '. Pet::IS_OUR_PET);
     }
 
     /**

@@ -19,6 +19,7 @@ use yii\helpers\ArrayHelper;
  *
  * @property CommonStatus $commonStatus
  * @property Brood[] $broods
+ * @property Brood $brood
  */
 class Breed extends ActiveRecordBehaviors
 {
@@ -73,7 +74,14 @@ class Breed extends ActiveRecordBehaviors
      */
     public function getBroods()
     {
-        return $this->hasMany(Brood::className(), ['breed_id' => 'id']);
+        return $this->hasMany(Brood::className(), ['breed_id' => 'id'])->orderBy('date desc');
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBrood()
+    {
+        return $this->hasOne(Brood::className(), ['breed_id' => 'id'])->orderBy('date desc');
     }
 
     public static function find()
@@ -88,8 +96,14 @@ class Breed extends ActiveRecordBehaviors
 
 class BreedQuery extends ActiveQuery
 {
-    public function active()
+    public function puppies()
     {
-        return $this->andWhere(['common_status_id' => CommonStatus::ACTIVE]);
+        return $this->andWhere([Breed::tableName().'.common_status_id' => CommonStatus::ACTIVE])
+            ->joinWith("broods.puppies", true, 'INNER JOIN');
+    }
+    public function pets()
+    {
+        return $this->andWhere([Breed::tableName().'.common_status_id' => CommonStatus::ACTIVE])
+            ->joinWith("broods.pets", true, 'INNER JOIN');
     }
 }

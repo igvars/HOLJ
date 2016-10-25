@@ -15,14 +15,12 @@ class BaseView extends View {
         /**
          * @var Breed $breed
          */
-        foreach(Breed::find()->active()->all() as $breed) {
+        foreach(Breed::find()->pets()->all() as $breed) {
             $breedItems[] = [
                 'label' => $breed->name,
                 'url' => \Yii::$app->urlManager->createUrl(['/site/breed','id'=>$breed->id])
             ];
-//            $breedItems[] = '<li class="divider"></li>';
         }
-//        echo '<pre>'; var_dump($breedItems); die();
         return $breedItems;
     }
 }
