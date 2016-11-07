@@ -135,3 +135,13 @@
 .slider-nav .slick-slide.slick-current {
     opacity: 1;
 }
+.header {
+    min-height: 100% !important;
+    height: 100% !important;
+}
+.header img {
+    width: 100%;
+}
+.main-raised {
+    margin-top: -20px;
+}

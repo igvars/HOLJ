@@ -25,7 +25,9 @@ $this->title = Yii::t('app', 'Gallery') . ' | ' . Yii::$app->name;
     <?php } ?>
 
     <div class="wrapper">
-        <div class="header header-filter" style="background-image: url('/images/bg.jpg');"></div>
+        <div class="header header-filter">
+            <img src="/images/homepage-background.jpg" alt="">
+        </div>
         <div class="main main-raised">
             <div class="profile-content">
                 <div class="container gallery-container">

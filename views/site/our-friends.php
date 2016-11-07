@@ -10,7 +10,9 @@ $this->title = Yii::t('app', 'Our friends') . ' | ' . Yii::$app->name;
 ?>
 <div class="profile-page">
     <div class="wrapper">
-        <div class="header header-filter" style="background-image: url('/images/bg.jpg');"></div>
+        <div class="header header-filter">
+            <img src="/images/homepage-background.jpg" alt="">
+        </div>
 
         <div class="main main-raised">
             <div class="profile-content">
