@@ -56,8 +56,20 @@ class SiteController extends BaseController
     public function actionIndex()
     {
         $breeds = Breed::find()->puppies()->all();
+        $galleryImages = Slide::find()->active()->all();
+        $imagesArray1 = [];
+        $imagesArray2 = [];
+        foreach ($galleryImages as $key => $image) {
+            if($key%2 == 0) {
+                $imagesArray1[] = $image;
+            } else {
+                $imagesArray2[] = $image;
+            }
+        }
         return $this->render('index',[
-            'breeds' => $breeds
+            'breeds' => $breeds,
+            'imagesArray1' => $imagesArray1,
+            'imagesArray2' => $imagesArray2
         ]);
     }
 

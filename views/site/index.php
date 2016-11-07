@@ -1,11 +1,14 @@
 <?php
 use app\models\Pet;
 use app\models\Breed;
+use app\models\Slide;
 
 /**
  * @var $this yii\web\View
  * @var Pet[] $pets
  * @var Breed[] $breeds
+ * @var Slide[] $imagesArray1
+ * @var Slide[] $imagesArray2
  */
 
 $this->title = Yii::$app->name;
@@ -63,12 +66,14 @@ $this->title = Yii::$app->name;
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img class="gallery-image img-rounded" src="https://pp.vk.me/c631929/v631929189/37535/amwTJrM-KMk.jpg" alt="">
-                                <img class="gallery-image img-rounded" src="https://pp.vk.me/c633619/v633619189/2d1bb/-VyCwY4_r_g.jpg" alt="">
+                                <?php foreach ($imagesArray1 as $image) { ?>
+                                    <img class="gallery-image img-rounded" src="<?= $image->source_url?>" alt="<?= $image->alt?>">
+                                <?php } ?>
                             </div>
                             <div class="col-sm-6">
-                                <img class="gallery-image img-rounded" src="https://pp.vk.me/c631929/v631929189/37520/YY824WhA4rM.jpg" alt="">
-                                <img class="gallery-image img-rounded" src="https://pp.vk.me/c633619/v633619189/2d1bb/-VyCwY4_r_g.jpg" alt="">
+                                <?php foreach ($imagesArray2 as $image) { ?>
+                                    <img class="gallery-image img-rounded" src="<?= $image->source_url?>" alt="<?= $image->alt?>">
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
