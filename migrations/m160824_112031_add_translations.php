@@ -29,7 +29,7 @@ class m160824_112031_add_translations extends Migration
 (20,	'app',	'Titles'),
 (21,	'app',	'Gender'),
 (22,	'app',	'Size'),
-(23,	'app',	'Mother ID'),
+(23,	'app',	'Mother name'),
 (24,	'app',	'Is our pet'),
 (25,	'app',	'Color'),
 (26,	'app',	'Father name'),
@@ -108,7 +108,8 @@ Dear customers and future owners of the puppies - good luck to you and the healt
 (90,	'app',	'Color: '),
 (91,	'app',	'Titles: '),
 (92,	'app',	'Mother: '),
-(93,	'app',	'Father: ');
+(93,	'app',	'Father: '),
+(94,	'app',	'Mother link');
         ");
         
         $this->execute("
@@ -158,7 +159,7 @@ Dear customers and future owners of the puppies - good luck to you and the healt
             (22,	'en',	NULL),
             (22,	'ru',	'Размер'),
             (23,	'en',	NULL),
-            (23,	'ru',	'Мать'),
+            (23,	'ru',	'Имя матери'),
             (24,	'en',	NULL),
             (24,	'ru',	'Наш щенок'),
             (25,	'en',	NULL),
@@ -307,7 +308,9 @@ Dear customers and future owners of the puppies - good luck to you and the healt
             (92,	'en',	NULL),
             (92,	'ru',	'Мать: '),
             (93,	'en',	NULL),
-            (93,	'ru',	'Отец: ');
+            (93,	'ru',	'Отец: '),
+            (94,	'en',	NULL),
+            (94,	'ru',	'Ссылка на мать');
       ");
     }
 

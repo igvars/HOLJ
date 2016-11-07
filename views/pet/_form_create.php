@@ -20,9 +20,10 @@ use yii\widgets\ActiveForm;
         '2' => Yii::t('app', 'Female'),
     ]) ?>
     <?= $form->field($model, 'size')->textInput() ?>
-    <?php //$form->field($model, 'mother_id')->textInput() ?>
     <?= $form->field($model, 'is_our_pet')->checkbox() ?>
     <?= $form->field($model, 'color')->textInput() ?>
+    <?= $form->field($model, 'mother_name')->textInput() ?>
+    <?= $form->field($model, 'mother_link')->textInput() ?>
     <?= $form->field($model, 'father_name')->textInput() ?>
     <?= $form->field($model, 'father_link')->textInput() ?>
 
