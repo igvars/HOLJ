@@ -23,7 +23,16 @@ $this->title = Yii::$app->name;
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
                         <div class="text-center">
-                            <p><?= Yii::t('app', 'We are happy that the owners are great dogs. We value them for their devotion, love and trust in us. We hope that you share our love for these cute babies! And let each day spent with the smallest dog in the world fills your life enthusiasm, happiness and positive!') ?></p>
+                            <p><?= Yii::t('app', "Pleased to welcome you to the website of our kennel.
+You've come to the fabulous world of miniature dogs, where you can pick up a puppy for every taste. And it will not
+just a dog, and a loving, gentle, kind, loyal, though sometimes with a character, a friend for life. And does not matter
+what kind of mood you, he is always looking forward and happy to meet the owner. And these devotees eyes
+help forget the sorrow and bring joy to your home.
+For our clients, I guarantee that all of our puppies are brought up hath on high-quality feed, love and care. And as I
+offered the doctors advise on feeding, breeding and training a puppy.
+For my part I want to make sure that I give a pet in good hands. And so it does not matter, you are buying a puppy
+for shows or \"pillow\" - love and take care of them as well as their parents.
+Dear customers and future owners of the puppies - good luck to you and the health of your pets!") ?></p>
                         </div>
                     </div>
                 </div>

@@ -54,7 +54,8 @@ class m160305_233650_base_tables extends Migration
             'size' => $this->string()->notNull(),
             'color' => $this->string()->notNull(),
             'titles' => $this->string()->notNull(),
-            'mother_id' => $this->integer(),
+            'mother_name' => $this->string()->notNull(),
+            'mother_link' => $this->string()->notNull(),
             'father_name' => $this->string()->notNull(),
             'father_link' => $this->string()->notNull(),
             'is_our_pet' => $this->string()->notNull(),
@@ -72,10 +73,6 @@ class m160305_233650_base_tables extends Migration
         $this->addForeignKey('pet_to_pet_status',
             'pet','pet_status_id',
             'pet_status', 'id',
-            'cascade', 'cascade');
-        $this->addForeignKey('pet_to_mother',
-            'pet','mother_id',
-            'pet', 'id',
             'cascade', 'cascade');
         $this->addForeignKey('breed_to_common_status',
             'breed','common_status_id',
@@ -124,7 +121,6 @@ class m160305_233650_base_tables extends Migration
         $this->dropForeignKey('brood_to_breed', 'brood');
         $this->dropForeignKey('breed_to_common_status', 'breed');
         $this->dropForeignKey('brood_to_common_status', 'brood');
-        $this->dropForeignKey('pet_to_mother', 'pet');
         $this->dropForeignKey('pet_to_pet_status', 'pet');
         $this->dropTable('pet_image');
         $this->dropTable('pet');

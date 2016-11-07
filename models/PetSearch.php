@@ -18,8 +18,8 @@ class PetSearch extends Pet
     public function rules()
     {
         return [
-            [['id', 'brood_id', 'pet_status_id', 'gender', 'mother_id', 'is_our_pet'], 'integer'],
-            [['name', 'date_create', 'date_update', 'description', 'titles', 'color', 'father_name', 'father_link', 'size'], 'safe'],
+            [['id', 'brood_id', 'pet_status_id', 'gender', 'is_our_pet'], 'integer'],
+            [['name', 'date_create', 'date_update', 'description', 'titles', 'color', 'mother_name', 'mother_link', 'father_name', 'father_link', 'size'], 'safe'],
         ];
     }
 
@@ -60,7 +60,6 @@ class PetSearch extends Pet
             'date_create' => $this->date_create,
             'date_update' => $this->date_update,
             'gender' => $this->gender,
-            'mother_id' => $this->mother_id,
             'is_our_pet' => $this->is_our_pet,
             'size' => $this->size,
             'brood_id' => $this->brood_id,
@@ -71,7 +70,8 @@ class PetSearch extends Pet
         $query->andFilterWhere(['like', 'description', $this->description]);
         $query->andFilterWhere(['like', 'titles', $this->titles]);
         $query->andFilterWhere(['like', 'color', $this->color]);
-        $query->andFilterWhere(['like', 'father_name', $this->father_name]);
+        $query->andFilterWhere(['like', 'mother_name', $this->father_name]);
+        $query->andFilterWhere(['like', 'mother_link', $this->father_link]);
         $query->andFilterWhere(['like', 'father_name', $this->father_name]);
         $query->andFilterWhere(['like', 'father_link', $this->father_link]);
 

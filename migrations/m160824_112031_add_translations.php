@@ -83,7 +83,16 @@ class m160824_112031_add_translations extends Migration
 (74,	'app',	'Error'),
 (75,	'app',	'The above error occurred while the Web server was processing your request.'),
 (76,	'app',	'Please contact us if you think this is a server error. Thank you.'),
-(77,	'app',	'We are happy that the owners are great dogs. We value them for their devotion, love and trust in us. We hope that you share our love for these cute babies! And let each day spent with the smallest dog in the world fills your life enthusiasm, happiness and positive!'),
+(77,	'app',	'Pleased to welcome you to the website of our kennel.
+You\'ve come to the fabulous world of miniature dogs, where you can pick up a puppy for every taste. And it will not
+just a dog, and a loving, gentle, kind, loyal, though sometimes with a character, a friend for life. And does not matter
+what kind of mood you, he is always looking forward and happy to meet the owner. And these devotees eyes
+help forget the sorrow and bring joy to your home.
+For our clients, I guarantee that all of our puppies are brought up hath on high-quality feed, love and care. And as I
+offered the doctors advise on feeding, breeding and training a puppy.
+For my part I want to make sure that I give a pet in good hands. And so it does not matter, you are buying a puppy
+for shows or \"pillow\" - love and take care of them as well as their parents.
+Dear customers and future owners of the puppies - good luck to you and the health of your pets!'),
 (78,	'app',	'view all'),
 (79,	'app',	'Nursery «Home of little joys»'),
 (80,	'app',	'Login'),
@@ -257,7 +266,16 @@ class m160824_112031_add_translations extends Migration
             (76,	'en',	NULL),
             (76,	'ru',	'Пожалуйста, свяжитесь с нами, если вы думаете, что это ошибка сервера. Спасибо.'),
             (77,	'en',	NULL),
-            (77,	'ru',	'Мы счастливы, что являемся владельцами великолепных собак. Мы ценим их за преданность, любовь и доверие к нам. Надеемся, что Вы разделите с нами любовь к этим милым малышам! И пусть каждый день, проведённый с самой маленькой собакой в мире наполняет Вашу жизнь задором, счастьем и позитивом!'),
+            (77,	'ru',	'Рада приветствовать Вас на сайте нашего питомника. 
+Вы попали в сказочный мир миниатюрных собачек, где можно подобрать себе щенка на любой вкус. И это будет не 
+просто собака, а любящий, нежный, добрый, преданный, хоть иногда и с характером, друг на всю жизнь. И не важно 
+какое настроение у Вас, он всегда с нетерпением ждет и с радостью встречает хозяина. И эти преданные глазки 
+помогут забыть печали и принесут радость в Ваш дом. 
+Своим клиентам я гарантирую, что все наши щенки вырощены на качественных кормах, в любви и заботе. А так же я 
+консультирую по вопорсам кормления, выращивания и воспитания щенка. 
+Со своей стороны я хочу быть уверена, что отдаю питомца в надежные руки. И поэтому не важно, покупаете Вы щенка 
+для шоу или \"на подушку\" - любите и заботьтесь о них так же как их родители. 
+Уважаемые покупатели и будущие владельцы щенков - удачи Вам и здоровья Вашим любимцам!'),
             (78,	'en',	NULL),
             (78,	'ru',	'Посмотреть всех'),
             (79,	'en',	NULL),

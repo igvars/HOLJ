@@ -10,18 +10,18 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
 ?>
 
 <!-- Modal Core -->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img class="img-rounded img-responsive img-raised"  src="" alt="<?= Yii::t('app', 'Bloodline')?>">
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <img class="img-rounded img-responsive img-raised"  src="" alt="--><?//= Yii::t('app', 'Bloodline')?><!--">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="profile-page">
     <div class="wrapper">
@@ -67,13 +67,11 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                                 <?= Yii::t('app', 'Size: ')?><?= $model->size ?><br>
                                 <?= Yii::t('app', 'Color: ')?><?= $model->color ?><br>
                                 <?= Yii::t('app', 'Titles: ')?><?= $model->titles ?><br>
-                                <?php if($model->mother_id) { ?>
-                                    <?= Yii::t('app', 'Mother: ')?><?= $model->getMother()->name ?><br>
-                                <?php } ?>
+                                <?= Yii::t('app', 'Mother: ')?><a href="<?= $model->mother_link ?>"><?= $model->mother_name ?></a>
                                 <?= Yii::t('app', 'Father: ')?><a href="<?= $model->father_link ?>"><?= $model->father_name ?></a>
                             </p>
 
-                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal1"><?= Yii::t('app', 'Bloodline')?></button>
+<!--                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal1">--><?//= Yii::t('app', 'Bloodline')?><!--</button>-->
 
                         </div>
                     </div>
