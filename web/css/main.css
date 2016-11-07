@@ -145,3 +145,8 @@
 .main-raised {
     margin-top: -20px;
 }
+@media only screen and (max-width: 1199px) {
+    .profile-page .profile img {
+        margin-top: -30px;
+    }
+}
