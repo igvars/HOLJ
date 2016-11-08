@@ -25,7 +25,7 @@ $this->title = Yii::$app->name;
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
                         <div class="text-center">
-                            <p><?= Yii::t('app', "Pleased to welcome you to the website of our kennel.
+                            <p class="main-text"><?= Yii::t('app', "Pleased to welcome you to the website of our kennel.
 You've come to the fabulous world of miniature dogs, where you can pick up a puppy for every taste. And it will not
 just a dog, and a loving, gentle, kind, loyal, though sometimes with a character, a friend for life. And does not matter
 what kind of mood you, he is always looking forward and happy to meet the owner. And these devotees eyes
