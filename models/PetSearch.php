@@ -12,6 +12,7 @@ use app\models\Pet;
  */
 class PetSearch extends Pet
 {
+    var $breed_id;
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class PetSearch extends Pet
     {
         return [
             [['id', 'brood_id', 'pet_status_id', 'gender', 'is_our_pet'], 'integer'],
-            [['name', 'date_create', 'date_update', 'description', 'titles', 'color', 'mother_name', 'mother_link', 'father_name', 'father_link', 'size'], 'safe'],
+            [['name', 'date_create', 'date_update', 'description', 'titles', 'color', 'mother_name', 'mother_link', 'father_name', 'father_link', 'size', 'breed_id'], 'safe'],
         ];
     }
 
@@ -55,6 +56,7 @@ class PetSearch extends Pet
             return $dataProvider;
         }
 
+        $query->joinWith('brood', true, "INNER JOIN");
         $query->andFilterWhere([
             'id' => $this->id,
             'date_create' => $this->date_create,
@@ -63,6 +65,7 @@ class PetSearch extends Pet
             'is_our_pet' => $this->is_our_pet,
             'size' => $this->size,
             'brood_id' => $this->brood_id,
+            'breed_id' => $this->breed_id,
             'pet_status_id' => $this->pet_status_id,
         ]);
 

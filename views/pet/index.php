@@ -24,17 +24,42 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'attribute' => 'petImages',
+                'value' => function($data) {
+                    if($data->petImages) {
+                        return "<img src='/" . $data->petImages[0]->source_url . "' />";
+                    }
+                    return "<img src='/' />";
+                },
+                'format' => 'raw',
+                'contentOptions' => [
+                    'class' => 'grid-image'
+                ],
+                'filter' => false
+            ],
             'name',
             'date_create',
             'date_update',
             [
+                'attribute' => 'breed_id',
+                'filter' => \app\models\Breed::getAll(),
+//                'value' => function($data) {
+//                    return $data->brood->breed->name;
+//                }
+                'value' => 'brood.breed.name'
+            ],
+            [
                 'attribute' => 'brood_id',
-                'filter' => \app\models\Brood::getAll()
+                'filter' => \app\models\Brood::getAllWithDate(),
+                'value' => function($data) {
+                    return $data->brood->name . " " . $data->brood->date;
+                }
             ],
             [
                 'attribute' => 'pet_status_id',
-                'filter' => \app\models\PetStatus::getAll()
+                'filter' => \app\models\PetStatus::getAll(),
+                "value" => "petStatus.name"
             ],
 
             ['class' => 'yii\grid\ActionColumn'],

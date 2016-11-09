@@ -33,7 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'date_update',
             [
                 'attribute' => 'breed_id',
-                'filter' => Breed::getAll()
+                'filter' => Breed::getAll(),
+                'value' => 'breed.name',
             ],
             [
                 'attribute' => 'common_status_id',
