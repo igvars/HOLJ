@@ -153,3 +153,8 @@
 .main-text {
     color: #686bb2;
 }
+@media only screen and (max-width: 540px) {
+    .profile-content h1.text-center {
+        font-size: 2em;
+    }
+}
