@@ -64,13 +64,27 @@ $this->title = $model->name . ' | ' . Yii::$app->name;
                         <div class="col-md-6">
                             <h1 class="title"><?= $model->name ?></h1>
                             <p>
-                                <?= Yii::t('app', 'Date of birth: ')?><?= date('Y-m-d', strtotime($model->brood->date)) ?><br>
-                                <?= Yii::t('app', 'Gender: ')?><?= $model->gender == Pet::MALE ? Yii::t('app', 'Male') : Yii::t('app', 'Female') ?><br>
-                                <?= Yii::t('app', 'Size: ')?><?= $model->size ?><br>
-                                <?= Yii::t('app', 'Color: ')?><?= $model->color ?><br>
-                                <?= Yii::t('app', 'Titles: ')?><?= $model->titles ?><br>
-                                <?= Yii::t('app', 'Mother: ')?><a href="<?= $model->mother_link ?>"><?= $model->mother_name ?></a>
-                                <?= Yii::t('app', 'Father: ')?><a href="<?= $model->father_link ?>"><?= $model->father_name ?></a>
+                                <?php if($model->brood->date) { ?>
+                                    <?= Yii::t('app', 'Date of birth: ')?><?= date('Y-m-d', strtotime($model->brood->date)) ?><br>
+                                <?php } ?>
+                                <?php if($model->gender) { ?>
+                                    <?= Yii::t('app', 'Gender: ')?><?= $model->gender == Pet::MALE ? Yii::t('app', 'Male') : Yii::t('app', 'Female') ?><br>
+                                <?php } ?>
+                                <?php if($model->size) { ?>
+                                    <?= Yii::t('app', 'Size: ')?><?= $model->size ?><br>
+                                <?php } ?>
+                                <?php if($model->color) { ?>
+                                    <?= Yii::t('app', 'Color: ')?><?= $model->color ?><br>
+                                <?php } ?>
+                                <?php if($model->titles) { ?>
+                                    <?= Yii::t('app', 'Titles: ')?><?= $model->titles ?><br>
+                                <?php } ?>
+                                <?php if($model->mother_link) { ?>
+                                    <?= Yii::t('app', 'Mother: ')?><a href="<?= $model->mother_link ?>"><?= $model->mother_name ?></a>
+                                <?php } ?>
+                                <?php if($model->father_link) { ?>
+                                    <?= Yii::t('app', 'Father: ')?><a href="<?= $model->father_link ?>"><?= $model->father_name ?></a>
+                                <?php } ?>
                             </p>
 
 <!--                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal1">--><?//= Yii::t('app', 'Bloodline')?><!--</button>-->

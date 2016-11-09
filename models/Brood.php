@@ -98,4 +98,9 @@ class Brood extends ActiveRecordBehaviors
     public static function getAll($breed_id = 0) {
         return ArrayHelper::map(self::find()->where(['breed_id'=>$breed_id])->all(),'id','name');
     }
+    public static function getAllWithDate($breed_id = 0) {
+        return ArrayHelper::map(self::find()->all(),'id',function($model) {
+            return $model->name.' '.$model->date;
+        });
+    }
 }

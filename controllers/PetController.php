@@ -161,7 +161,7 @@ class PetController extends AdminBaseController
     }
 
     public function actionSubcategory($id) {
-        $subcategories = Brood::getAll($id);
+        $subcategories = Brood::getAllWithDate($id);
         $response = "<option value=''>".Yii::t('app', '-- select brood --') ."</option>";
         foreach ($subcategories as $key => $subcategoryName) {
             $response .= "<option value='{$key}'>{$subcategoryName}</option>";
